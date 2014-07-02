@@ -98,6 +98,13 @@
         </tx:attributes>  
     </tx:advice>   
 
+<bean id="spiderService" class="Service.SpiderService">
+</bean>
+
+<bean id="TestAction" class="Action.Test" scope="prototype">
+   <property name="spiderService" ref="spiderService" />
+</bean>
+
 <!-- 把Session工厂注入给hibernateTemplate -->
 <!-- 
 <bean id="hibernateTemplate"
@@ -143,9 +150,6 @@
    <property name="orderItemDAO" ref="orderItemDAO" />
 </bean>
 
-<bean id="loginAction" class="action.Login" scope="prototype">
-   <property name="userService" ref="userService" />
-</bean>
 <bean id="registerAction" class="action.Register" scope="prototype">
 	<property name="userService" ref="userService"></property>
 </bean>

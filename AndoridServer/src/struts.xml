@@ -7,6 +7,9 @@
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
 	<package name="bookstore" extends="struts-default,json-default">
+		<action name="test" class="TestAction">
+			<result type="json"></result>
+		</action>
 		<!-- 
 		<action name="login" class="loginAction">
 			<result name="success">/WEB-INF/content/slogin.jsp</result>
