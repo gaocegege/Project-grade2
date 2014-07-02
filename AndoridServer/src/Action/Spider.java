@@ -1,15 +1,11 @@
 package Action;
 
-import java.util.List;
-
 import Service.JsonToJava;
 import Service.SpiderService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import domain.Content;
-
-public class Test extends ActionSupport {
+public class Spider extends ActionSupport {
 	/**
 	 * 
 	 */
@@ -36,7 +32,7 @@ public class Test extends ActionSupport {
 	public String getJsonContent() {
 		return jsonContent;
 	}
-	
+
 	public void setJsonToJava(JsonToJava jsonToJava) {
 		this.jsonToJava = jsonToJava;
 	}
@@ -46,13 +42,13 @@ public class Test extends ActionSupport {
 		return jsonToJava;
 	}
 
+
 	public String execute()
 	{
 		String URL = "http://api.yi18.net/top/list";
 		jsonContent = "";
 		jsonContent = spiderService.sendGet(URL);
-		jsonContent  = "[" + jsonContent + "]";
-		List<Content> TestList = jsonToJava.transfer(jsonContent);
+		jsonContent = "[" + jsonContent + "]";
 		return SUCCESS;
 	}
 }

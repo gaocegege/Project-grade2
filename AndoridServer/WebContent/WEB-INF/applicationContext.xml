@@ -101,8 +101,17 @@
 <bean id="spiderService" class="Service.SpiderService">
 </bean>
 
+<bean id="jsonToJava" class="Service.JsonToJava">
+</bean>
+
 <bean id="TestAction" class="Action.Test" scope="prototype">
    <property name="spiderService" ref="spiderService" />
+   <property name="jsonToJava" ref="jsonToJava" />
+</bean>
+
+<bean id="spiderAction" class="Action.Spider" scope="prototype">
+   <property name="spiderService" ref="spiderService" />
+   <property name="jsonToJava" ref="jsonToJava" />
 </bean>
 
 <!-- 把Session工厂注入给hibernateTemplate -->
