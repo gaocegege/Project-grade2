@@ -2,6 +2,9 @@ package Action;
 
 import java.util.List;
 
+import org.apache.struts2.json.annotations.JSON;
+
+import Service.ContentService;
 import Service.JsonToJava;
 import Service.SpiderService;
 
@@ -17,6 +20,7 @@ public class Test extends ActionSupport {
 	private SpiderService spiderService;
 	private String jsonContent;
 	private JsonToJava jsonToJava;
+	private ContentService contentService;
 
 	
 	public void setSpiderService(SpiderService spiderService) {
@@ -46,6 +50,16 @@ public class Test extends ActionSupport {
 		return jsonToJava;
 	}
 
+	public void setContentService(ContentService contentService) {
+		this.contentService = contentService;
+	}
+
+	@JSON(serialize=false)
+	public ContentService getContentService() {
+		return contentService;
+	}
+
+
 	public String execute()
 	{
 		String URL = "http://api.yi18.net/top/list";
@@ -53,6 +67,10 @@ public class Test extends ActionSupport {
 		jsonContent = spiderService.sendGet(URL);
 		jsonContent  = "[" + jsonContent + "]";
 		List<Content> TestList = jsonToJava.transfer(jsonContent);
+		for (int i = 0; i < TestList.size(); i++)
+		{
+			contentService.addContent(TestList.get(i));
+		}
 		return SUCCESS;
 	}
 }

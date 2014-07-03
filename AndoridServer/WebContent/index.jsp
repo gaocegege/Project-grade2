@@ -20,7 +20,7 @@
 		        	document.getElementById("container").innerHTML = data.jsonContent;
 		        }
 		    });               
-		},10000);
+		},1000);
 	</script>
 </body>
 </html>
