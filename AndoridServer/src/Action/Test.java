@@ -62,6 +62,7 @@ public class Test extends ActionSupport {
 
 	public String execute()
 	{
+		//System.out.println("Test action begins");
 		String URL = "http://api.yi18.net/top/list";
 		jsonContent = "";
 		jsonContent = spiderService.sendGet(URL);
@@ -71,6 +72,7 @@ public class Test extends ActionSupport {
 		{
 			contentService.addContent(TestList.get(i));
 		}
+		contentService.getContents(0);
 		return SUCCESS;
 	}
 }

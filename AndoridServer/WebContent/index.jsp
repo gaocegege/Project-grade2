@@ -10,17 +10,19 @@
 <body>
 	<div id="container">Hehe</div>
 	<script type="text/javascript">
-		setTimeout(function(){
-			$.ajax({
-				url : "test.action",
-		        type : "get",
-		        //data : "pageNum=" + pageNum,
-		        dataType: "json",
-		        success: function(data){
-		        	document.getElementById("container").innerHTML = data.jsonContent;
-		        }
-		    });               
-		},1000);
+	function send(){
+		$.ajax({
+			url : "test.action",
+	        type : "get",
+	        //data : "pageNum=" + pageNum,
+	        dataType: "json",
+	        success: function(data){
+	        	document.getElementById("container").innerHTML = data.jsonContent;
+	        	//alert("1");
+	        }
+	    });               
+	}
+	setInterval("send()",5000);
 	</script>
 </body>
 </html>
