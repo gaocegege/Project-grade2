@@ -135,6 +135,10 @@
    <property name="jsonToJava" ref="jsonToJava" />
 </bean>
 
+<bean id="getListAction" class="Action.GetList" scope="prototype">
+   <property name="contentService" ref="contentService" />
+</bean>
+
 <!-- 把Session工厂注入给hibernateTemplate -->
 <!-- 
 <bean id="hibernateTemplate"

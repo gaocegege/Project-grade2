@@ -10,6 +10,10 @@
 		<action name="test" class="TestAction">
 			<result type="json"></result>
 		</action>
+		
+		<action name="getList" class="getListAction">
+			<result type="json"></result>
+		</action>
 		<!-- 
 		<action name="login" class="loginAction">
 			<result name="success">/WEB-INF/content/slogin.jsp</result>
