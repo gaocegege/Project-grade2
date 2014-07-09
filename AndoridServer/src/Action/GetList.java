@@ -31,7 +31,8 @@ public class GetList extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
+	@JSON(serialize=false)
 	public int getId() {
 		return id;
 	}
