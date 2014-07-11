@@ -8,6 +8,7 @@ public class Content {
 	private String time;
 	private int id;
 	private int types;
+	private NewsContent newsContent;
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -49,5 +50,11 @@ public class Content {
 	}
 	public int getTypes() {
 		return types;
+	}
+	public void setNewsContent(NewsContent newsContent) {
+		this.newsContent = newsContent;
+	}
+	public NewsContent getNewsContent() {
+		return newsContent;
 	}
 }
