@@ -3,8 +3,8 @@ package Service;
 import java.util.List;
 
 import net.sf.json.JSONArray;
-import domain.Content;
 import DAO.ContentDAO;
+import Domain.Content;
 
 public class ContentService {
 	private ContentDAO contentDAO;
@@ -22,9 +22,9 @@ public class ContentService {
 		contentDAO.addContent(content);
 	}
 	
-	public String getContents(int id)
+	public String getContents(int id,int types)
 	{
-		List<Content> result = contentDAO.getContents(id);
+		List<Content> result = contentDAO.getContents(id,types);
 		JSONArray jsonArray = JSONArray.fromObject(result);
 		System.out.println("HEHEHEHEHE:" + jsonArray.toString());
 		return jsonArray.toString();

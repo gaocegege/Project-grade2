@@ -2,8 +2,7 @@ package Service.Test;
 
 import java.util.List;
 
-import domain.Content;
-
+import Domain.Content;
 import Service.JsonToJava;
 
 public class JsonTest {

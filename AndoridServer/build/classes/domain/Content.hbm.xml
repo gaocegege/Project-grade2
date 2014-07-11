@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="domain.Content" table="content">
+	<class name="Domain.Content" table="content">
 		<id 
 			name="id" 
 			column="id"

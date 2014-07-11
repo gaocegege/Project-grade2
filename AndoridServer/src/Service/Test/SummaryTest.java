@@ -2,9 +2,8 @@ package Service.Test;
 
 import java.util.List;
 
-import domain.Importance;
 import edu.fudan.util.exception.LoadModelException;
-
+import Domain.Importance;
 import Service.KeyWordService;
 import Service.SummaryService;
 

@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GetList extends ActionSupport {
 	private int id;
+	private int types;
 	private String result;
 	private ContentService contentService;
 
@@ -37,9 +38,17 @@ public class GetList extends ActionSupport {
 		return id;
 	}
 
+	public int getTypes() {
+		return types;
+	}
+
+	public void setTypes(int types) {
+		this.types = types;
+	}
+
 	public String execute()
 	{
-		result = contentService.getContents(id);
+		result = contentService.getContents(id,types);
 		return SUCCESS;
 	}
 }

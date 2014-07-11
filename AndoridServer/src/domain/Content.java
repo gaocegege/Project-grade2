@@ -1,4 +1,4 @@
-package domain;
+package Domain;
 
 public class Content {
 	private String title;
@@ -8,6 +8,7 @@ public class Content {
 	private String from;
 	private String time;
 	private int id;
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}

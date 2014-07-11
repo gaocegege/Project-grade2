@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import domain.Content;
+import Domain.Content;
 
 public class ContentDAO {
 	private SessionFactory sessionFactory;

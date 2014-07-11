@@ -10,7 +10,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.List;
 
-import domain.Token;
+import Domain.Token;
 
 public class SplitService {
 	private List<Token> tokens;

@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Arg;
-import domain.Token;
+import Domain.Arg;
+import Domain.Token;
 
 public class SearchFormat {
 	private List<String> nes = new ArrayList<String>();
@@ -147,7 +147,7 @@ public class SearchFormat {
 			ss += " ";
 		}
 		if (alt.size() != 0) {
-			ss += "(";
+			ss += " (";
 			for (int i = 0; i < alt.size(); i++) {
 
 				ss += alt.get(i);

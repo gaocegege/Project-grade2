@@ -1,4 +1,4 @@
-package domain;
+package Domain;
 
 import net.sf.json.JSONArray;
 

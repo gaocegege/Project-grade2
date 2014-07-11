@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;  
 import java.util.List;  
 
-import domain.Content;
-import domain.OriginContent;
+import Domain.Content;
+import Domain.OriginContent;
   
 import net.sf.json.JSONArray;  
 import net.sf.json.JSONObject;  

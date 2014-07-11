@@ -14,17 +14,17 @@ import net.sf.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import domain.Arg;
-import domain.Content;
-import domain.Token;
+
+import Domain.Arg;
+import Domain.Content;
+import Domain.Token;
 
 
 public class DifferentNews {
 	public static void main(String[] args) throws IOException {
 		SearchFormat sf = new SearchFormat();
-		String ans = sf.getSearchSent("中纪委：自由主义滋长已成为党的一大忧患");
+		String ans = sf.getSearchSent("调查称美国人多认为美中关系远比美日关系重要");
 		System.out.println(ans);
         return;
     }

@@ -12,7 +12,7 @@
 	<script type="text/javascript">
 	function send(){
 		$.ajax({
-			url : "test.action",
+			url : "spider.action",
 	        type : "get",
 	        //data : "pageNum=" + pageNum,
 	        dataType: "json",

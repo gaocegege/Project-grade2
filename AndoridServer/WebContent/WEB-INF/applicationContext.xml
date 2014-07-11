@@ -54,7 +54,7 @@
    <!-- 配置映射文件 -->
    <property name="mappingResources">
     <list>
-    	<value>domain/Content.hbm.xml</value>
+    	<value>Domain/Content.hbm.xml</value>
     </list>
    </property>
    <property name="hibernateProperties">  
@@ -137,6 +137,18 @@
 
 <bean id="getListAction" class="Action.GetList" scope="prototype">
    <property name="contentService" ref="contentService" />
+</bean>
+
+<bean id="searchFormat" class="Service.SearchFormat" scope="prototype">
+</bean>
+
+<bean id="formatSearchURL" class="Service.FormatSearchURL" scope="prototype">
+   <property name="searchFormat" ref="searchFormat" />
+   <property name="contentDAO" ref="contentDAO" />
+</bean>
+
+<bean id="getSearchPage" class="Action.GetSearchPage" scope="prototype">
+   <property name="formatSearchURL" ref="formatSearchURL" />
 </bean>
 
 <!-- 把Session工厂注入给hibernateTemplate -->

@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.apache.struts2.json.annotations.JSON;
 
+import Domain.Content;
 import Service.ContentService;
 import Service.JsonToJava;
 import Service.SpiderService;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import domain.Content;
 
 public class Test extends ActionSupport {
 	/**
@@ -72,7 +71,6 @@ public class Test extends ActionSupport {
 		{
 			contentService.addContent(TestList.get(i));
 		}
-		contentService.getContents(0);
 		return SUCCESS;
 	}
 }
