@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import domain.Importance;
+import Domain.Importance;
+
 
 import edu.fudan.ml.types.Dictionary;
 import edu.fudan.nlp.cn.tag.CWSTagger;

@@ -54,7 +54,8 @@
    <!-- 配置映射文件 -->
    <property name="mappingResources">
     <list>
-    	<value>domain/Content.hbm.xml</value>
+    	<value>Domain/Content.hbm.xml</value>
+    	<value>Domain/NewsContent.hbm.xml</value>
     </list>
    </property>
    <property name="hibernateProperties">  
@@ -114,6 +115,12 @@
    </property>
 </bean>
 
+<bean id="newsContentDAO" class="DAO.NewsContentDAO">
+	<property name="sessionFactory">
+    	<ref bean="sessionFactory" />
+   </property>
+</bean>
+
 <bean id="contentService" class="Service.ContentService">
    <property name="contentDAO" ref="contentDAO" />
 </bean>
@@ -122,6 +129,10 @@
 </bean>
 
 <bean id="jsonToJava" class="Service.JsonToJava">
+</bean>
+
+<bean id="htmlService" class="Service.HtmlService">
+	<property name="contentService" ref="contentService" />
 </bean>
 
 <bean id="TestAction" class="Action.Test" scope="prototype">

@@ -4,16 +4,18 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="domain.Content" table="content">
+	<class name="Domain.Content" table="content">
 		<id 
 			name="id" 
 			column="id"
 			type="int"
-		></id>
+		>
+		<generator class="increment"/>
+		</id>
 		
 		<property
-			name="img"
-			column="img"
+			name="imageUrl"
+			column="imageUrl"
 			update="true"
 			insert="true"
 			type="java.lang.String"
@@ -21,8 +23,8 @@
 		></property>
 		
 		<property
-			name="keywords"
-			column="keywords"
+			name="url"
+			column="url"
 			update="true"
 			insert="true"
 			type="java.lang.String"
@@ -48,14 +50,6 @@
 		></property>
 		
 		<property
-			name="count"
-			column="count"
-			update="true"
-			insert="true"
-			type="int"
-		></property>
-		
-		<property
 			name="title"
 			column="title"
 			update="true"
@@ -64,5 +58,14 @@
 			length="100"
 		></property>
 		
+		<property
+			name="types"
+			column="types"
+			update="true"
+			insert="true"
+			type="int"
+		></property>
+		
+		<one-to-one name="newsContent" class="NewsContent" cascade="all"></one-to-one>
 	</class>
 </hibernate-mapping>

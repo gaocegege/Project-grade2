@@ -1,5 +1,9 @@
 package Action;
 
+import java.util.Map;
+
+import net.sf.json.JSONArray;
+
 import org.apache.struts2.json.annotations.JSON;
 
 import Service.ContentService;
@@ -8,8 +12,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GetList extends ActionSupport {
 	private int id;
-	private String result;
 	private ContentService contentService;
+	private JSONArray result;
 
 	public void setContentService(ContentService contentService) {
 		this.contentService = contentService;
@@ -19,14 +23,6 @@ public class GetList extends ActionSupport {
 	public ContentService getContentService() {
 		return contentService;
 	}
-	
-	public void setResult(String result) {
-		this.result = result;
-	}
-
-	public String getResult() {
-		return result;
-	}
 
 	public void setId(int id) {
 		this.id = id;
@@ -35,6 +31,14 @@ public class GetList extends ActionSupport {
 	@JSON(serialize=false)
 	public int getId() {
 		return id;
+	}
+	
+	public void setResult(JSONArray result) {
+		this.result = result;
+	}
+
+	public JSONArray getResult() {
+		return result;
 	}
 
 	public String execute()

@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Arg;
-import domain.Token;
+import Domain.Arg;
+import Domain.Token;
+
 
 public class SearchFormat {
 	private List<String> nes = new ArrayList<String>();

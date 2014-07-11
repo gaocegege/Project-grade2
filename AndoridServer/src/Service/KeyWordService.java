@@ -7,7 +7,8 @@ import java.util.List;
 import org.fnlp.app.keyword.AbstractExtractor;
 import org.fnlp.app.keyword.WordExtract;
 
-import domain.Importance;
+import Domain.Importance;
+
 
 import edu.fudan.nlp.cn.tag.CWSTagger;
 import edu.fudan.nlp.corpus.StopWords;

@@ -7,7 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import domain.Content;
+import Domain.Content;
+
 
 public class ContentDAO {
 	private SessionFactory sessionFactory;
@@ -30,7 +31,7 @@ public class ContentDAO {
 		session.close();
 	}
 	
-	public List<Content> getContents(int id)
+	public List<Content> getContents(int id, int types)
 	{
 		if (id == 0)
 		{
@@ -38,7 +39,7 @@ public class ContentDAO {
 		}
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		Query q = session.createQuery(" From Content where id < " + id + "and id > " + (id - 11));
+		Query q = session.createQuery(" From Content Where id < " + id+ "and types = " + types + "Order by id desc");
 		q.setFirstResult(0);
 		q.setMaxResults(10);
 		List<Content> result = q.list();

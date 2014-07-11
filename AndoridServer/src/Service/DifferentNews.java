@@ -14,11 +14,10 @@ import net.sf.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import Domain.Arg;
+import Domain.Content;
+import Domain.Token;
 
-import domain.Arg;
-import domain.Content;
-import domain.Token;
 
 
 public class DifferentNews {
