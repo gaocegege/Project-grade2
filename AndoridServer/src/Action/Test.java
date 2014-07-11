@@ -11,7 +11,6 @@ import Service.SpiderService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class Test extends ActionSupport {
 	/**
 	 * 
@@ -72,7 +71,6 @@ public class Test extends ActionSupport {
 		{
 			contentService.addContent(TestList.get(i));
 		}
-		contentService.getContents(0);
 		return SUCCESS;
 	}
 }

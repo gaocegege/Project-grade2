@@ -12,8 +12,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GetList extends ActionSupport {
 	private int id;
+	private int types;
+	private String result;
 	private ContentService contentService;
-	private JSONArray result;
 
 	public void setContentService(ContentService contentService) {
 		this.contentService = contentService;
@@ -22,6 +23,14 @@ public class GetList extends ActionSupport {
 	@JSON(serialize=false)
 	public ContentService getContentService() {
 		return contentService;
+	}
+	
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getResult() {
+		return result;
 	}
 
 	public void setId(int id) {
@@ -32,18 +41,18 @@ public class GetList extends ActionSupport {
 	public int getId() {
 		return id;
 	}
-	
-	public void setResult(JSONArray result) {
-		this.result = result;
+
+	public int getTypes() {
+		return types;
 	}
 
-	public JSONArray getResult() {
-		return result;
+	public void setTypes(int types) {
+		this.types = types;
 	}
 
 	public String execute()
 	{
-		result = contentService.getContents(id);
+		result = contentService.getContents(id,types);
 		return SUCCESS;
 	}
 }

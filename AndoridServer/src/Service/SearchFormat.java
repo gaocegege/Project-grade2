@@ -26,10 +26,10 @@ public class SearchFormat {
 
 		// get
 		// ===============================================================
-		System.out.println(sen.indexOf("¡°"));
-		if (sen.contains("¡°")) {
-			int beg = sen.indexOf("¡°");
-			int end = sen.indexOf("¡±", beg);
+		System.out.println(sen.indexOf("Â¡Â°"));
+		if (sen.contains("Â¡Â°")) {
+			int beg = sen.indexOf("Â¡Â°");
+			int end = sen.indexOf("Â¡Â±", beg);
 			nes.add(sen.substring(beg + 1, end));
 			found = true;
 		}

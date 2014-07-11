@@ -14,6 +14,8 @@ import net.sf.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+
+
 import Domain.Arg;
 import Domain.Content;
 import Domain.Token;
@@ -23,7 +25,7 @@ import Domain.Token;
 public class DifferentNews {
 	public static void main(String[] args) throws IOException {
 		SearchFormat sf = new SearchFormat();
-		String ans = sf.getSearchSent("中纪委：自由主义滋长已成为党的一大忧患");
+		String ans = sf.getSearchSent("脰脨录脥脦炉拢潞脳脭脫脡脰梅脪氓脳脤鲁陇脪脩鲁脡脦陋碌鲁碌脛脪禄麓贸脫脟禄录");
 		System.out.println(ans);
         return;
     }

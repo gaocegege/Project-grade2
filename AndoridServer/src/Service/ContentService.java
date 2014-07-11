@@ -22,10 +22,11 @@ public class ContentService {
 		contentDAO.addContent(content);
 	}
 	
-	public JSONArray getContents(int id, int types)
+	public String getContents(int id,int types)
 	{
-		List<Content> result = contentDAO.getContents(id, types);
+		List<Content> result = contentDAO.getContents(id,types);
 		JSONArray jsonArray = JSONArray.fromObject(result);
-		return jsonArray;
+		System.out.println("HEHEHEHEHE:" + jsonArray.toString());
+		return jsonArray.toString();
 	}
 }
