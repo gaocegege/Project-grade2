@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import Domain.Importance;
+
 import edu.fudan.ml.types.Dictionary;
 import edu.fudan.nlp.cn.tag.CWSTagger;
 import edu.fudan.util.exception.LoadModelException;

@@ -21,10 +21,11 @@ import Domain.Content;
 import Domain.Token;
 
 
+
 public class DifferentNews {
 	public static void main(String[] args) throws IOException {
 		SearchFormat sf = new SearchFormat();
-		String ans = sf.getSearchSent("调查称美国人多认为美中关系远比美日关系重要");
+		String ans = sf.getSearchSent("脰脨录脥脦炉拢潞脳脭脫脡脰梅脪氓脳脤鲁陇脪脩鲁脡脦陋碌鲁碌脛脪禄麓贸脫脟禄录");
 		System.out.println(ans);
         return;
     }

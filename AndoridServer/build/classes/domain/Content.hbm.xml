@@ -9,24 +9,26 @@
 			name="id" 
 			column="id"
 			type="int"
-		></id>
+		>
+		<generator class="increment"/>
+		</id>
 		
 		<property
-			name="img"
-			column="img"
+			name="imageUrl"
+			column="imageUrl"
 			update="true"
 			insert="true"
 			type="java.lang.String"
-			length="50"
+			length="100"
 		></property>
 		
 		<property
-			name="keywords"
-			column="keywords"
+			name="url"
+			column="url"
 			update="true"
 			insert="true"
 			type="java.lang.String"
-			length="50"
+			length="100"
 		></property>
 		
 		<property
@@ -48,14 +50,6 @@
 		></property>
 		
 		<property
-			name="count"
-			column="count"
-			update="true"
-			insert="true"
-			type="int"
-		></property>
-		
-		<property
 			name="title"
 			column="title"
 			update="true"
@@ -64,5 +58,14 @@
 			length="100"
 		></property>
 		
+		<property
+			name="types"
+			column="types"
+			update="true"
+			insert="true"
+			type="int"
+		></property>
+		
+		<one-to-one name="newsContent" class="Domain.NewsContent" cascade="all"></one-to-one>
 	</class>
 </hibernate-mapping>

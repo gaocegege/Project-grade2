@@ -54,6 +54,7 @@
    <!-- 配置映射文件 -->
    <property name="mappingResources">
     <list>
+    	<value>Domain/NewsContent.hbm.xml</value>
     	<value>Domain/Content.hbm.xml</value>
     </list>
    </property>
@@ -124,6 +125,10 @@
 <bean id="jsonToJava" class="Service.JsonToJava">
 </bean>
 
+<bean id="htmlService" class="Service.HtmlService">
+	<property name="contentService" ref="contentService" />
+</bean>
+
 <bean id="TestAction" class="Action.Test" scope="prototype">
    <property name="contentService" ref="contentService" />
    <property name="spiderService" ref="spiderService" />
@@ -131,9 +136,10 @@
 </bean>
 
 <bean id="spiderAction" class="Action.Spider" scope="prototype">
-   <property name="spiderService" ref="spiderService" />
-   <property name="jsonToJava" ref="jsonToJava" />
+   <property name="htmlService" ref="htmlService" />
+   <property name="contentService" ref="contentService" />
 </bean>
+
 
 <bean id="getListAction" class="Action.GetList" scope="prototype">
    <property name="contentService" ref="contentService" />
@@ -149,6 +155,14 @@
 
 <bean id="getSearchPage" class="Action.GetSearchPage" scope="prototype">
    <property name="formatSearchURL" ref="formatSearchURL" />
+</bean>
+
+<bean id="baiduService" class="Service.BaiduService" scope="prototype">
+</bean>
+
+<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
+   <property name="formatSearchURL" ref="formatSearchURL" />
+   <property name="baiduService" ref="baiduService" />
 </bean>
 
 <!-- 把Session工厂注入给hibernateTemplate -->

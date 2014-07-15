@@ -1,37 +1,21 @@
 package Domain;
 
+import org.apache.struts2.json.annotations.JSON;
+
 public class Content {
 	private String title;
-	private String img;
-	private String keywords;
-	private int count;
+	private String url;
+	private String imageUrl;
 	private String from;
 	private String time;
 	private int id;
-	
+	private int types;
+	private NewsContent newsContent;
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	public String getTitle() {
 		return title;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
-	public String getImg() {
-		return img;
-	}
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-	public String getKeywords() {
-		return keywords;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	public int getCount() {
-		return count;
 	}
 	public void setFrom(String from) {
 		this.from = from;
@@ -50,5 +34,29 @@ public class Content {
 	}
 	public int getId() {
 		return id;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setTypes(int types) {
+		this.types = types;
+	}
+	public int getTypes() {
+		return types;
+	}
+	public void setNewsContent(NewsContent newsContent) {
+		this.newsContent = newsContent;
+	}
+	public NewsContent getNewsContent() {
+		return newsContent;
 	}
 }

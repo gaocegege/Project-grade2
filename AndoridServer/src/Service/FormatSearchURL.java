@@ -28,14 +28,15 @@ public class FormatSearchURL {
 		return contentDAO;
 	}
 	
-	public String format(int id) throws IOException{
-		List<Content> result = contentDAO.getContents(id);
+	public String format(int id,int types) throws IOException{
+		List<Content> result = contentDAO.getContents(id+1,types);
 		Content cur = result.get(0);
 		String title = cur.getTitle();
 		
 		String urlA = "http://news.baidu.com/ns?word=";
 		String urlB = "&tn=newstitle&from=news&cl=2&rn=20&ct=0";
 		String SearchContext = searchFormat.getSearchSent(title);
-		return urlA + SearchContext + urlB;	
+		//return urlA + SearchContext + urlB;
+		return SearchContext;
 	}
 }

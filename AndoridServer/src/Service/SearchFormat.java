@@ -7,6 +7,7 @@ import java.util.List;
 import Domain.Arg;
 import Domain.Token;
 
+
 public class SearchFormat {
 	private List<String> nes = new ArrayList<String>();
 	private List<String> alt = new ArrayList<String>();
@@ -25,10 +26,10 @@ public class SearchFormat {
 
 		// get
 		// ===============================================================
-		System.out.println(sen.indexOf("¡°"));
-		if (sen.contains("¡°")) {
-			int beg = sen.indexOf("¡°");
-			int end = sen.indexOf("¡±", beg);
+		System.out.println(sen.indexOf("Â¡Â°"));
+		if (sen.contains("Â¡Â°")) {
+			int beg = sen.indexOf("Â¡Â°");
+			int end = sen.indexOf("Â¡Â±", beg);
 			nes.add(sen.substring(beg + 1, end));
 			found = true;
 		}
@@ -140,6 +141,15 @@ public class SearchFormat {
 			nes.add(alt.get(0));
 			alt.remove(0);
 		}
+		if(alt.size()<=1){
+			for(int i=0;i<alt.size();i++)
+			{
+				nes.add(alt.get(0));
+				alt.remove(0);
+			}
+		}
+			
+		System.out.println(alt.size());
 		String ss = "";
 		for (int i = 0; i < nes.size(); i++) {
 
@@ -147,7 +157,7 @@ public class SearchFormat {
 			ss += " ";
 		}
 		if (alt.size() != 0) {
-			ss += " (";
+			ss += "(";
 			for (int i = 0; i < alt.size(); i++) {
 
 				ss += alt.get(i);

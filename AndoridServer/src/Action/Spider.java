@@ -2,6 +2,8 @@ package Action;
 
 import java.util.List;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import Domain.Content;
 import Service.ContentService;
 import Service.HtmlService;
@@ -14,7 +16,6 @@ public class Spider extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private SpiderService spiderService;
 	private ContentService contentService;
 	private HtmlService htmlService;
 	private String ContentChina;
@@ -23,13 +24,6 @@ public class Spider extends ActionSupport {
 
 	// private JsonToJava jsonToJava;
 
-	public void setSpiderService(SpiderService spiderService) {
-		this.spiderService = spiderService;
-	}
-
-	public SpiderService getSpiderService() {
-		return spiderService;
-	}
 
 	public void setContentChina(String contentchina) {
 		this.ContentChina = contentchina;
@@ -55,6 +49,7 @@ public class Spider extends ActionSupport {
 		ContentSociety = contentSociety;
 	}
 
+	@JSON(serialize=false)
 	public ContentService getContentService() {
 		return contentService;
 	}
@@ -63,6 +58,7 @@ public class Spider extends ActionSupport {
 		this.contentService = contentService;
 	}
 
+	@JSON(serialize=false)
 	public HtmlService getHtmlService() {
 		return htmlService;
 	}
@@ -81,12 +77,12 @@ public class Spider extends ActionSupport {
 			contentService.addContent(newsChina.get(i));
 		}
 		
-		List<Content> newsWorld =  htmlService.parseHtml(URLChina);
+		List<Content> newsWorld =  htmlService.parseHtml(URLWorld);
 		for (int i = 0; i < newsWorld.size(); i++){
 			contentService.addContent(newsWorld.get(i));
 		}
 		
-		List<Content> newsSociety =  htmlService.parseHtml(URLChina);
+		List<Content> newsSociety =  htmlService.parseHtml(URLSociety);
 		for (int i = 0; i < newsSociety.size(); i++){
 			contentService.addContent(newsSociety.get(i));
 		}
