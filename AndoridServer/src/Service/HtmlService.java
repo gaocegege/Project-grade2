@@ -68,6 +68,8 @@ public class HtmlService {
 				docInside = Jsoup.connect(url).get();
 				Element newsbody = docInside.getElementById("artibody");
 				String newsContentStr = newsbody.getElementsByTag("p").text();
+				if(newsContentStr.length()>=4000)
+					break;
 				String from = docInside.getElementById("media_name").text();
 				Elements image = newsbody.getElementsByClass("img_wrapper");
 				String imageUrl;

@@ -71,29 +71,27 @@ public class CompareService {
 				|| content2.getNewsContent().getContents().equals("")))
 			urlcontent2 = content2.getNewsContent().getContents();
 		
-		String noun1 = "";
-		String noun2 = "";
+		String title1 = content1.getTitle();
+		String title2 = content2.getTitle();
 		for(int i=0;i<content1_title.size();i++){
 			if(content1_title.get(i).getPos().contains("n")){
 				content1_noun.add(content1_title.get(i).getCont());
-				noun1 += content1_title.get(i).getCont();
 			}
 		}
 		for(int i=0;i<content2_title.size();i++){
 			if(content2_title.get(i).getPos().contains("n")){
 				content2_noun.add(content2_title.get(i).getCont());
-				noun2 += content2_title.get(i).getCont();
 			}
 		}
 		Boolean compare1 = true,compare2 = true;
 		for (String s : content1_noun) {   
-			if(!noun2.contains(s) && !urlcontent2.contains(s)){
+			if(!title2.contains(s) && !urlcontent2.contains(s)){
 				compare1 = false;
 				break;
 			}
 		}
 		for (String s : content2_noun) {   
-			if(!noun1.contains(s) && !urlcontent1.contains(s)){
+			if(!title1.contains(s) && !urlcontent1.contains(s)){
 				compare2 = false;
 				break;
 			}
