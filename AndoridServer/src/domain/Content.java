@@ -1,6 +1,6 @@
 package Domain;
 
-import org.apache.struts2.json.annotations.JSON;
+import java.util.Set;
 
 public class Content {
 	private String title;
@@ -10,7 +10,11 @@ public class Content {
 	private String time;
 	private int id;
 	private int types;
+	// one to one 
 	private NewsContent newsContent;
+	// one to many
+	private Set<KeyWord> keyWord;
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -58,5 +62,11 @@ public class Content {
 	}
 	public NewsContent getNewsContent() {
 		return newsContent;
+	}
+	public void setKeyWord(Set<KeyWord> keyWord) {
+		this.keyWord = keyWord;
+	}
+	public Set<KeyWord> getKeyWord() {
+		return keyWord;
 	}
 }
