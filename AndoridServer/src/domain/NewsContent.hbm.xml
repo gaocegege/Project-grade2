@@ -18,9 +18,9 @@
 			insert="true"
 			not-null="true"
 			type="java.lang.String"
-			length="2000"
+			length="4000"
 		></property>
 		
-		<one-to-one name="content" class="Content" constrained="true"></one-to-one>
+		<one-to-one name="content" class="Domain.Content" constrained="true"></one-to-one>
 	</class>
 </hibernate-mapping>

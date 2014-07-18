@@ -1,5 +1,7 @@
 package Domain;
 
+import org.apache.struts2.json.annotations.JSON;
+
 public class NewsContent {
 	private int id;
 	private String contents;
@@ -8,12 +10,14 @@ public class NewsContent {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	
 	public String getContents() {
 		return contents;
 	}
 	public void setContent(Content content) {
 		this.content = content;
 	}
+	@JSON(serialize=false)
 	public Content getContent() {
 		return content;
 	}
