@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Token;
@@ -42,5 +43,12 @@ public class SplitService {
 		tokens = jj.transfer(line);
 		return tokens;
 
+	}
+	public List<String> split2(String sentence) throws IOException{
+		List<String> result = new ArrayList<String>();
+		List<Token>cur = this.split(sentence);
+		for(Token t: cur)
+			result.add(t.getCont());
+		return result;
 	}
 }

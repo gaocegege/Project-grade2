@@ -22,8 +22,7 @@
 		</property>
 		<!-- 数据库地址，这里也要注意一下编码，不然乱码可是很郁闷的哦！ -->
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp;
-			</value>
+			<value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp; </value>
 		</property>
 		<!--dialect,每个数据库对应的Dialet匹配其平台特性 -->
 		<!-- <property name="dialect"> <value>org.hibernate.dialect.MySQLDialect</value> 
@@ -122,7 +121,7 @@
 	<bean id="contentService" class="Service.ContentService">
 		<property name="contentDAO" ref="contentDAO" />
 	</bean>
-	
+
 	<bean id="newsContentService" class="Service.NewsContentService">
 		<property name="newsContentDAO" ref="newsContentDAO" />
 	</bean>
@@ -140,6 +139,10 @@
 	<bean id="htmlService" class="Service.HtmlService">
 		<property name="contentService" ref="contentService" />
 		<property name="keyWordService" ref="keyWordService" />
+	</bean>
+	<bean id="splitService" class="Service.SplitService">
+	</bean>
+	<bean id="chooseService" class="Service.ChooseService">
 	</bean>
 
 	<bean id="TestAction" class="Action.Test" scope="prototype">
@@ -176,9 +179,19 @@
 	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
 	</bean>
-	
+
 	<bean id="getNewsContent" class="Action.GetNewsContent" scope="prototype">
 		<property name="newsContentService" ref="newsContentService" />
+	</bean>
+	<bean id="getSecondaryList" class="Action.GetSecondaryList" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+		<property name="searchFormat" ref="searchFormat" />
+	</bean>
+	<bean id="getSimilarNews" class="Action.GetSimilarNews" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+		<property name="contentService" ref="contentService" />
+		<property name="splitService" ref="splitService" />
+		<property name="chooseService" ref="chooseService" />
 	</bean>
 
 	<!-- 把Session工厂注入给hibernateTemplate -->
