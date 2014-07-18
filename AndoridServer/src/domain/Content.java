@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.apache.struts2.json.annotations.JSON;
 
+
 public class Content {
 	private String title;
 	private String url;
@@ -69,6 +70,7 @@ public class Content {
 	public void setKeyWord(Set<KeyWord> keyWord) {
 		this.keyWord = keyWord;
 	}
+
 	@JSON(serialize=false)
 	public Set<KeyWord> getKeyWord() {
 		return keyWord;
