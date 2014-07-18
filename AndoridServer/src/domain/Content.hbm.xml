@@ -19,7 +19,7 @@
 			update="true"
 			insert="true"
 			type="java.lang.String"
-			length="50"
+			length="100"
 		></property>
 		
 		<property
@@ -28,7 +28,7 @@
 			update="true"
 			insert="true"
 			type="java.lang.String"
-			length="50"
+			length="100"
 		></property>
 		
 		<property
@@ -66,6 +66,13 @@
 			type="int"
 		></property>
 		
-		<one-to-one name="newsContent" class="NewsContent" cascade="all"></one-to-one>
+		<one-to-one name="newsContent" class="Domain.NewsContent" cascade="all"></one-to-one>
+		
+		<set name="keyWord" lazy="false" inverse="true" cascade="delete" >
+			<key>
+				<column name="id"/>
+			</key>
+		<one-to-many class="Domain.KeyWord"/>
+		</set>
 	</class>
 </hibernate-mapping>

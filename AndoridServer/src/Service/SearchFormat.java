@@ -141,6 +141,15 @@ public class SearchFormat {
 			nes.add(alt.get(0));
 			alt.remove(0);
 		}
+		if(alt.size()<=1){
+			for(int i=0;i<alt.size();i++)
+			{
+				nes.add(alt.get(0));
+				alt.remove(0);
+			}
+		}
+			
+		System.out.println(alt.size());
 		String ss = "";
 		for (int i = 0; i < nes.size(); i++) {
 

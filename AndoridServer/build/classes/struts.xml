@@ -11,10 +11,17 @@
 			<result type="json"></result>
 		</action>
 		
+		<action name="spider" class="spiderAction">
+			<result type="json"></result>
+		</action>
+		
 		<action name="getList" class="getListAction">
 			<result type="json"></result>
 		</action>
 		<action name="getSearchPage" class="getSearchPage">
+			<result type="json"></result>
+		</action>
+		<action name="getBaiduList" class="getBaiduList">
 			<result type="json"></result>
 		</action>
 	</package>

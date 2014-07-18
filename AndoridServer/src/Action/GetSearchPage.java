@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GetSearchPage extends ActionSupport{
 	private int id;
+	private int types;
 	private String result;
 	private FormatSearchURL formatSearchURL;
 	public void setId(int id) {
@@ -41,8 +42,16 @@ public class GetSearchPage extends ActionSupport{
 		return result;
 	}
 	
+	public int getTypes() {
+		return types;
+	}
+
+	public void setTypes(int types) {
+		this.types = types;
+	}
+
 	public String execute() throws IOException{
-		result = formatSearchURL.format(id);
+		result = formatSearchURL.format(id,types);
 		return SUCCESS;
 	}
 }

@@ -1,13 +1,13 @@
 package Action;
 
-import Service.KeyWordService;
+import Service.KeyWordServiceOld;
 import Service.SummaryService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 public class getSum extends ActionSupport {
 	private SummaryService summaryService;
-	private KeyWordService keyWordService;
+	private KeyWordServiceOld keyWordService;
 
 	public void setSummaryService(SummaryService summaryService) {
 		this.summaryService = summaryService;
@@ -17,11 +17,11 @@ public class getSum extends ActionSupport {
 		return summaryService;
 	}
 
-	public void setKeyWordService(KeyWordService keyWordService) {
+	public void setKeyWordService(KeyWordServiceOld keyWordService) {
 		this.keyWordService = keyWordService;
 	}
 
-	public KeyWordService getKeyWordService() {
+	public KeyWordServiceOld getKeyWordService() {
 		return keyWordService;
 	}
 	
