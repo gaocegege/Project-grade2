@@ -14,8 +14,6 @@ public class Content {
 	private NewsContent newsContent;
 	// one to many
 	private Set<KeyWord> keyWord;
-	private int types;
-	private NewsContent newsContent;
 	public void setTitle(String title) {
 		this.title = title;
 	}
