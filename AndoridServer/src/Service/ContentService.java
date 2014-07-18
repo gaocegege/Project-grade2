@@ -22,9 +22,9 @@ public class ContentService {
 		contentDAO.addContent(content);
 	}
 	
-	public List<Content> getContents(int id,int types)
+	public List<Content> getContents(int id,int types,int method)
 	{
-		List<Content> result = contentDAO.getContents(id,types);
+		List<Content> result = contentDAO.getContents(id,types,method);
 		//JSONArray jsonArray = JSONArray.fromObject(result);
 		//System.out.println("HEHEHEHEHE:" + jsonArray.toString());
 		//return jsonArray.toString();

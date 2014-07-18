@@ -31,7 +31,7 @@ public class ContentDAO {
 		session.close();
 	}
 	
-	public List<Content> getContents(int id, int types)
+	public List<Content> getContents(int id, int types,int method)
 	{
 		if (id == 0)
 		{
@@ -39,10 +39,33 @@ public class ContentDAO {
 		}
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		Query q = session.createQuery(" From Content Where id < " + id+ "and types = " + types + "Order by id desc");
-		q.setFirstResult(0);
-		q.setMaxResults(10);
+		Query q;
+	    if(method == 0){
+	    	q = session.createQuery(" From Content Where id < " + id+ "and types = " + types + "Order by id desc");
+	    	q.setFirstResult(0);
+	    	q.setMaxResults(20);
+	    }else{
+	    	q = session.createQuery(" From Content Where id > " + id+ "and types = " + types + "Order by id desc");
+	    }
 		List<Content> result = q.list();
+		tx.commit();
+		session.close();
+		return result;
+	}
+	
+	public Content getOneContent(int id)
+	{
+		if (id == 0)
+		{
+			id = getMaxId();
+		}
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Query q = session.createQuery(" From Content Where id = " + id);
+		List<Content> results = q.list();
+		if(results.size() == 0)
+			return null;
+		Content result = results.get(0);
 		tx.commit();
 		session.close();
 		return result;

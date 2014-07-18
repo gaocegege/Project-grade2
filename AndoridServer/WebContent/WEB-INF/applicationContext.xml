@@ -1,250 +1,220 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<beans xmlns="http://www.springframework.org/schema/beans"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
-    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"  
-    xmlns:context="http://www.springframework.org/schema/context"  
-    xsi:schemaLocation="  
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="  
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd  
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd  
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd  
-       ">  
- 
- <!-- 
- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
-        <property name="locations"> 
-            <list> 
-                <value>classpath:jdbc.properties</value> 
-            </list> 
-        </property> 
- </bean>
-  -->
- 
-<!-- 建立数据源 -->
-<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-   <!-- 数据库驱动，我这里使用的是Mysql数据库 -->
-   <property name="driverClassName">
-    <value>com.mysql.jdbc.Driver</value>
-   </property>
-   <!-- 数据库地址，这里也要注意一下编码，不然乱码可是很郁闷的哦！ -->
-   <property name="url">
-    <value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp;characterEncoding=UTF-8</value>
-   </property>
-   <!--dialect,每个数据库对应的Dialet匹配其平台特性-->
-   <!-- 
-   	<property name="dialect">
-  		<value>org.hibernate.dialect.MySQLDialect</value>
-  	</property>
-   -->
-   <!-- 数据库的用户名 -->
-   <property name="username">
-    <value>root</value>
-   </property>
-   <!-- 数据库的密码 -->
-   <property name="password">
-    <value></value>
-   </property>
-</bean>
-<!-- 把数据源注入给Session工厂 -->
-<bean id="sessionFactory"
-   class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-   <property name="dataSource">
-    <ref bean="dataSource" />
-   </property>
-   <!-- 配置映射文件 -->
-   <property name="mappingResources">
-    <list>
-    	<value>Domain/NewsContent.hbm.xml</value>
-    	<value>Domain/Content.hbm.xml</value>
-    </list>
-   </property>
-   <property name="hibernateProperties">  
-   	<props>
-   		<prop key="hibernate.hbm2ddl.auto">update</prop>
-   		<prop key="hibernate.dialect">  
-   			org.hibernate.dialect.MySQL5Dialect  
-        </prop>  
-        <prop key="hibernate.show_sql">true</prop>
-        <!-- <prop key="hibernate.show_sql">true</prop>   -->
-        <prop key="hibernate.format_sql">true</prop>  
-        <prop key="hibernate.current_session_context_class">
-        	org.springframework.orm.hibernate4.SpringSessionContext  
+       ">
 
-        </prop>  
-        <prop key="hibernate.search.lucene_version">LUCENE_36</prop>  
-        <prop key="hibernate.search.default.directory_provider">  
-        	org.hibernate.search.store.impl.FSDirectoryProvider  
-        </prop>
-   	</props>  
-   </property>   
-</bean>
- 
-<bean id="transactionManager"  
-        class="org.springframework.orm.hibernate4.HibernateTransactionManager"  
-        p:sessionFactory-ref="sessionFactory" />  
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
-        <tx:attributes>  
-            <tx:method name="save*" propagation="REQUIRED" />  
-            <tx:method name="add*" propagation="REQUIRED" />  
-            <tx:method name="create*" propagation="REQUIRED" />  
-            <tx:method name="insert*" propagation="REQUIRED" />  
-            <tx:method name="update*" propagation="REQUIRED" />  
-            <tx:method name="merge*" propagation="REQUIRED" />  
-            <tx:method name="del*" propagation="REQUIRED" />  
-            <tx:method name="remove*" propagation="REQUIRED" />  
-            <tx:method name="put*" propagation="REQUIRED" />  
-            <tx:method name="use*" propagation="REQUIRED" />  
-            <tx:method name="get*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="count*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="find*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="list*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="*" read-only="false" />  
-        </tx:attributes>  
-    </tx:advice>   
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <list> <value>classpath:jdbc.properties</value> 
+		</list> </property> </bean> -->
 
-<bean id="hibernateTemplate"
-   class="org.springframework.orm.hibernate4.HibernateTemplate">
-   <constructor-arg>
-    <ref local="sessionFactory" />
-   </constructor-arg>
-</bean>
+	<!-- 建立数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- 数据库驱动，我这里使用的是Mysql数据库 -->
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<!-- 数据库地址，这里也要注意一下编码，不然乱码可是很郁闷的哦！ -->
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp;
+			</value>
+		</property>
+		<!--dialect,每个数据库对应的Dialet匹配其平台特性 -->
+		<!-- <property name="dialect"> <value>org.hibernate.dialect.MySQLDialect</value> 
+			</property> -->
+		<!-- 数据库的用户名 -->
+		<property name="username">
+			<value>root</value>
+		</property>
+		<!-- 数据库的密码 -->
+		<property name="password">
+			<value></value>
+		</property>
+	</bean>
+	<!-- 把数据源注入给Session工厂 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 配置映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>Domain/KeyWord.hbm.xml</value>
+				<value>Domain/NewsContent.hbm.xml</value>
+				<value>Domain/Content.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- <prop key="hibernate.show_sql">true</prop> -->
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.current_session_context_class">
+					org.springframework.orm.hibernate4.SpringSessionContext
 
-<bean id="contentDAO" class="DAO.ContentDAO">
-   <property name="sessionFactory">
-    	<ref bean="sessionFactory" />
-   </property>
-</bean>
+				</prop>
+				<prop key="hibernate.search.lucene_version">LUCENE_36</prop>
+				<prop key="hibernate.search.default.directory_provider">
+					org.hibernate.search.store.impl.FSDirectoryProvider
+				</prop>
+			</props>
+		</property>
+	</bean>
 
-<bean id="contentService" class="Service.ContentService">
-   <property name="contentDAO" ref="contentDAO" />
-</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory" />
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="put*" propagation="REQUIRED" />
+			<tx:method name="use*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" read-only="false" />
+		</tx:attributes>
+	</tx:advice>
 
-<bean id="spiderService" class="Service.SpiderService">
-</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+		<constructor-arg>
+			<ref local="sessionFactory" />
+		</constructor-arg>
+	</bean>
 
-<bean id="jsonToJava" class="Service.JsonToJava">
-</bean>
+	<bean id="keyWordDAO" class="DAO.KeyWordDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
-<bean id="htmlService" class="Service.HtmlService">
-	<property name="contentService" ref="contentService" />
-</bean>
+	<bean id="contentDAO" class="DAO.ContentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
-<bean id="TestAction" class="Action.Test" scope="prototype">
-   <property name="contentService" ref="contentService" />
-   <property name="spiderService" ref="spiderService" />
-   <property name="jsonToJava" ref="jsonToJava" />
-</bean>
+	<bean id="newsContentDAO" class="DAO.NewsContentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
-<bean id="spiderAction" class="Action.Spider" scope="prototype">
-   <property name="htmlService" ref="htmlService" />
-   <property name="contentService" ref="contentService" />
-</bean>
+	<bean id="contentService" class="Service.ContentService">
+		<property name="contentDAO" ref="contentDAO" />
+	</bean>
+	
+	<bean id="newsContentService" class="Service.NewsContentService">
+		<property name="newsContentDAO" ref="newsContentDAO" />
+	</bean>
+
+	<bean id="keyWordService" class="Service.KeyWordService">
+		<property name="keyWordDAO" ref="keyWordDAO" />
+	</bean>
+
+	<bean id="spiderService" class="Service.SpiderService">
+	</bean>
+
+	<bean id="jsonToJava" class="Service.JsonToJava">
+	</bean>
+
+	<bean id="htmlService" class="Service.HtmlService">
+		<property name="contentService" ref="contentService" />
+		<property name="keyWordService" ref="keyWordService" />
+	</bean>
+
+	<bean id="TestAction" class="Action.Test" scope="prototype">
+		<property name="contentService" ref="contentService" />
+		<property name="spiderService" ref="spiderService" />
+		<property name="jsonToJava" ref="jsonToJava" />
+	</bean>
+
+	<bean id="spiderAction" class="Action.Spider" scope="prototype">
+		<property name="htmlService" ref="htmlService" />
+	</bean>
 
 
-<bean id="getListAction" class="Action.GetList" scope="prototype">
-   <property name="contentService" ref="contentService" />
-</bean>
+	<bean id="getListAction" class="Action.GetList" scope="prototype">
+		<property name="contentService" ref="contentService" />
+	</bean>
 
-<bean id="searchFormat" class="Service.SearchFormat" scope="prototype">
-</bean>
+	<bean id="searchFormat" class="Service.SearchFormat" scope="prototype">
+	</bean>
 
-<bean id="formatSearchURL" class="Service.FormatSearchURL" scope="prototype">
-   <property name="searchFormat" ref="searchFormat" />
-   <property name="contentDAO" ref="contentDAO" />
-</bean>
+	<bean id="formatSearchURL" class="Service.FormatSearchURL" scope="prototype">
+		<property name="searchFormat" ref="searchFormat" />
+		<property name="contentDAO" ref="contentDAO" />
+	</bean>
 
-<bean id="getSearchPage" class="Action.GetSearchPage" scope="prototype">
-   <property name="formatSearchURL" ref="formatSearchURL" />
-</bean>
+	<bean id="getSearchPage" class="Action.GetSearchPage" scope="prototype">
+		<property name="formatSearchURL" ref="formatSearchURL" />
+	</bean>
 
-<bean id="baiduService" class="Service.BaiduService" scope="prototype">
-</bean>
+	<bean id="baiduService" class="Service.BaiduService" scope="prototype">
+		<property name="contentDAO" ref="contentDAO" />
+	</bean>
 
-<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
-   <property name="formatSearchURL" ref="formatSearchURL" />
-   <property name="baiduService" ref="baiduService" />
-</bean>
+	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+	</bean>
+	
+	<bean id="getNewsContent" class="Action.GetNewsContent" scope="prototype">
+		<property name="newsContentService" ref="newsContentService" />
+	</bean>
 
-<!-- 把Session工厂注入给hibernateTemplate -->
-<!-- 
-<bean id="hibernateTemplate"
-   class="org.springframework.orm.hibernate4.HibernateTemplate">
-   <constructor-arg>
-    <ref local="sessionFactory" />
-   </constructor-arg>
-</bean>
--->
-<!-- 把DAO注入给Session工厂 -->
-<!-- 
-<bean id="userDAO" class="dao.imp.UserDAO">
-   <property name="sessionFactory">
-    	<ref bean="sessionFactory" />
-   </property>
-</bean>
-<bean id="bookDAO" class="dao.imp.BookDAO">
-	<property name="sessionFactory">
-		<ref bean="sessionFactory" />
-	</property>
-</bean>
-<bean id="ordersDAO" class="dao.imp.OrdersDAO">
-	<property name="sessionFactory">
-		<ref bean="sessionFactory" />
-	</property>
-</bean>
-<bean id="orderItemDAO" class="dao.imp.OrderItemDAO">
-	<property name="sessionFactory">
-		<ref bean="sessionFactory" />
-	</property>
-</bean>
-
-<bean id="userService" class="service.imp.UserService">
-   <property name="userDAO" ref="userDAO" />
-</bean>
-<bean id="bookService" class="service.imp.BookService">
-   <property name="bookDAO" ref="bookDAO" />
-</bean>
-<bean id="ordersService" class="service.imp.OrdersService">
-   <property name="ordersDAO" ref="ordersDAO" />
-</bean>
-<bean id="orderItemService" class="service.imp.OrderItemService">
-   <property name="orderItemDAO" ref="orderItemDAO" />
-</bean>
-
-<bean id="registerAction" class="action.Register" scope="prototype">
-	<property name="userService" ref="userService"></property>
-</bean>
-<bean id="bookShowAction" class="action.Books" scope="prototype">
-	<property name="bookService" ref="bookService"/>
-</bean>
-<bean id="sbookShowAction" class="action.StatisticBooks" scope="prototype">
-	<property name="bookService" ref="bookService"/>
-</bean>
-<bean id="addBookAction" class="action.AddBook" scope="prototype">
-	<property name="bookService" ref="bookService"/>
-</bean>
-<bean id="addToBasketAction" class="action.AddToBasket" scope="prototype">
-</bean>
-<bean id="bargainAction" class="action.Bargain" scope="prototype">
-	<property name="ordersService" ref="ordersService"/>
-	<property name="bookService" ref="bookService"/>
-	<property name="userService" ref="userService"/>
-	<property name="orderItemService" ref="orderItemService"/>
-</bean>
-<bean id="changeInfoAction" class="action.ChangeInfo" scope="prototype">
-	<property name="userService" ref="userService"></property>
-</bean>
-<bean id="orderShowAction" class="action.ViewOrder" scope="prototype">
-	<property name="ordersService" ref="ordersService"></property>
-	<property name="userService" ref="userService"></property>
-</bean>
-<bean id="logoutAction" class="action.Logout" scope="prototype">
-</bean>
-<bean id="statisticAction" class="action.Statistic" scope="prototype">
-	<property name="ordersService" ref="ordersService"/>
-	<property name="bookService" ref="bookService"/>
-</bean>
-<bean id="statisticUserAction" class="action.StatisticUsers" scope="prototype">
-	<property name="ordersService" ref="ordersService"/>
-</bean>
- -->
+	<!-- 把Session工厂注入给hibernateTemplate -->
+	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 
+		<constructor-arg> <ref local="sessionFactory" /> </constructor-arg> </bean> -->
+	<!-- 把DAO注入给Session工厂 -->
+	<!-- <bean id="userDAO" class="dao.imp.UserDAO"> <property name="sessionFactory"> 
+		<ref bean="sessionFactory" /> </property> </bean> <bean id="bookDAO" class="dao.imp.BookDAO"> 
+		<property name="sessionFactory"> <ref bean="sessionFactory" /> </property> 
+		</bean> <bean id="ordersDAO" class="dao.imp.OrdersDAO"> <property name="sessionFactory"> 
+		<ref bean="sessionFactory" /> </property> </bean> <bean id="orderItemDAO" 
+		class="dao.imp.OrderItemDAO"> <property name="sessionFactory"> <ref bean="sessionFactory" 
+		/> </property> </bean> <bean id="userService" class="service.imp.UserService"> 
+		<property name="userDAO" ref="userDAO" /> </bean> <bean id="bookService" 
+		class="service.imp.BookService"> <property name="bookDAO" ref="bookDAO" /> 
+		</bean> <bean id="ordersService" class="service.imp.OrdersService"> <property 
+		name="ordersDAO" ref="ordersDAO" /> </bean> <bean id="orderItemService" class="service.imp.OrderItemService"> 
+		<property name="orderItemDAO" ref="orderItemDAO" /> </bean> <bean id="registerAction" 
+		class="action.Register" scope="prototype"> <property name="userService" ref="userService"></property> 
+		</bean> <bean id="bookShowAction" class="action.Books" scope="prototype"> 
+		<property name="bookService" ref="bookService"/> </bean> <bean id="sbookShowAction" 
+		class="action.StatisticBooks" scope="prototype"> <property name="bookService" 
+		ref="bookService"/> </bean> <bean id="addBookAction" class="action.AddBook" 
+		scope="prototype"> <property name="bookService" ref="bookService"/> </bean> 
+		<bean id="addToBasketAction" class="action.AddToBasket" scope="prototype"> 
+		</bean> <bean id="bargainAction" class="action.Bargain" scope="prototype"> 
+		<property name="ordersService" ref="ordersService"/> <property name="bookService" 
+		ref="bookService"/> <property name="userService" ref="userService"/> <property 
+		name="orderItemService" ref="orderItemService"/> </bean> <bean id="changeInfoAction" 
+		class="action.ChangeInfo" scope="prototype"> <property name="userService" 
+		ref="userService"></property> </bean> <bean id="orderShowAction" class="action.ViewOrder" 
+		scope="prototype"> <property name="ordersService" ref="ordersService"></property> 
+		<property name="userService" ref="userService"></property> </bean> <bean 
+		id="logoutAction" class="action.Logout" scope="prototype"> </bean> <bean 
+		id="statisticAction" class="action.Statistic" scope="prototype"> <property 
+		name="ordersService" ref="ordersService"/> <property name="bookService" ref="bookService"/> 
+		</bean> <bean id="statisticUserAction" class="action.StatisticUsers" scope="prototype"> 
+		<property name="ordersService" ref="ordersService"/> </bean> -->
 </beans>

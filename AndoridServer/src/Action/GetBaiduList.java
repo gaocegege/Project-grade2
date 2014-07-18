@@ -7,7 +7,7 @@ import org.apache.struts2.json.annotations.JSON;
 
 import Domain.Content;
 import Service.BaiduService;
-import Service.FormatSearchURL;
+import Service.SearchFormat;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,7 +16,6 @@ public class GetBaiduList extends ActionSupport {
 	private int pid;
 	private int types;
 	private List<Content> result;
-	private FormatSearchURL formatSearchURL;
 	private BaiduService baiduService;
 	
 	@JSON(serialize=false)
@@ -54,15 +53,6 @@ public class GetBaiduList extends ActionSupport {
 	}
 
 	@JSON(serialize=false)
-	public FormatSearchURL getFormatSearchURL() {
-		return formatSearchURL;
-	}
-
-	public void setFormatSearchURL(FormatSearchURL formatSearchURL) {
-		this.formatSearchURL = formatSearchURL;
-	}
-
-	@JSON(serialize=false)
 	public BaiduService getBaiduService() {
 		return baiduService;
 	}
@@ -73,9 +63,7 @@ public class GetBaiduList extends ActionSupport {
 
 	public String execute() throws IOException
 	{
-		String searchContext = formatSearchURL.format(id, types);
-		System.out.println(searchContext);
-		result = baiduService.search(searchContext, pid);
+		result = baiduService.searchByKey(id, pid);
 		return SUCCESS;
 	}
 }

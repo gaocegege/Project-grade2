@@ -28,9 +28,8 @@ public class FormatSearchURL {
 		return contentDAO;
 	}
 	
-	public String format(int id,int types) throws IOException{
-		List<Content> result = contentDAO.getContents(id+1,types);
-		Content cur = result.get(0);
+	public String format(int id) throws IOException{
+		Content cur = contentDAO.getOneContent(id);
 		String title = cur.getTitle();
 		
 		String urlA = "http://news.baidu.com/ns?word=";

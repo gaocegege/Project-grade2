@@ -16,7 +16,6 @@ public class Spider extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ContentService contentService;
 	private HtmlService htmlService;
 	private String ContentChina;
 	private String ContentWorld;
@@ -50,15 +49,6 @@ public class Spider extends ActionSupport {
 	}
 
 	@JSON(serialize=false)
-	public ContentService getContentService() {
-		return contentService;
-	}
-
-	public void setContentService(ContentService contentService) {
-		this.contentService = contentService;
-	}
-
-	@JSON(serialize=false)
 	public HtmlService getHtmlService() {
 		return htmlService;
 	}
@@ -72,20 +62,12 @@ public class Spider extends ActionSupport {
 		String URLWorld = "http://news.sina.com.cn/world/";
 		String URLSociety = "http://news.sina.com.cn/society/";
 		
-		List<Content> newsChina = htmlService.parseHtml(URLChina);
-		for (int i = 0; i < newsChina.size(); i++){
-			contentService.addContent(newsChina.get(i));
-		}
+		// HTML Service is responsible for get the contents from the URL
+		htmlService.parseHtml(URLChina);
 		
-		List<Content> newsWorld =  htmlService.parseHtml(URLWorld);
-		for (int i = 0; i < newsWorld.size(); i++){
-			contentService.addContent(newsWorld.get(i));
-		}
+		htmlService.parseHtml(URLWorld);
 		
-		List<Content> newsSociety =  htmlService.parseHtml(URLSociety);
-		for (int i = 0; i < newsSociety.size(); i++){
-			contentService.addContent(newsSociety.get(i));
-		}
+		htmlService.parseHtml(URLSociety);
 
 		return SUCCESS;
 	}

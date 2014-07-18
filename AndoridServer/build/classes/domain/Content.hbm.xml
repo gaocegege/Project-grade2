@@ -67,5 +67,12 @@
 		></property>
 		
 		<one-to-one name="newsContent" class="Domain.NewsContent" cascade="all"></one-to-one>
+		
+		<set name="keyWord" lazy="false" inverse="true" cascade="delete" >
+			<key>
+				<column name="id"/>
+			</key>
+		<one-to-many class="Domain.KeyWord"/>
+		</set>
 	</class>
 </hibernate-mapping>

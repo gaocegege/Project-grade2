@@ -24,5 +24,8 @@
 		<action name="getBaiduList" class="getBaiduList">
 			<result type="json"></result>
 		</action>
+		<action name="getNewsContent" class="getNewsContent">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>

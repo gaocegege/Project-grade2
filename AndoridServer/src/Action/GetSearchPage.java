@@ -51,7 +51,7 @@ public class GetSearchPage extends ActionSupport{
 	}
 
 	public String execute() throws IOException{
-		result = formatSearchURL.format(id,types);
+		result = formatSearchURL.format(id);
 		return SUCCESS;
 	}
 }

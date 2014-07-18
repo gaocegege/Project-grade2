@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.Set;
+
 import org.apache.struts2.json.annotations.JSON;
 
 public class Content {
@@ -10,7 +12,11 @@ public class Content {
 	private String time;
 	private int id;
 	private int types;
+	// one to one 
 	private NewsContent newsContent;
+	// one to many
+	private Set<KeyWord> keyWord;
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -56,7 +62,15 @@ public class Content {
 	public void setNewsContent(NewsContent newsContent) {
 		this.newsContent = newsContent;
 	}
+	@JSON(serialize=false)
 	public NewsContent getNewsContent() {
 		return newsContent;
+	}
+	public void setKeyWord(Set<KeyWord> keyWord) {
+		this.keyWord = keyWord;
+	}
+	@JSON(serialize=false)
+	public Set<KeyWord> getKeyWord() {
+		return keyWord;
 	}
 }
