@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Domain.KeyWord" table="keyword">
+		<id 
+			name="kid" 
+			column="kid"
+			type="int"
+		>
+		<generator class="increment"/>
+		</id> 
+		
+		<property
+			name="keyWord"
+			column="keyWord"
+			update="true"
+			insert="true"
+			not-null="true"
+			type="java.lang.String"
+			length="50"
+		></property>
+		
+		<many-to-one name="content" column="id" class="Domain.Content" not-null="true"></many-to-one>
+	</class>
+</hibernate-mapping>
