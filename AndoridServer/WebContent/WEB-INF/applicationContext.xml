@@ -193,7 +193,7 @@
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
 	</bean>
-	<bean id="getSimilarNews2" class="Action.GetSimilarNews" scope="prototype">
+	<bean id="getSimilarNews2" class="Action.GetSimilarNews2" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
