@@ -132,7 +132,7 @@
 	<bean id="contentService" class="Service.ContentService">
 		<property name="contentDAO" ref="contentDAO" />
 	</bean>
-	
+
 	<bean id="newsContentService" class="Service.NewsContentService">
 		<property name="newsContentDAO" ref="newsContentDAO" />
 	</bean>
@@ -199,9 +199,24 @@
 	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
 	</bean>
-	
+
 	<bean id="getNewsContent" class="Action.GetNewsContent" scope="prototype">
 		<property name="newsContentService" ref="newsContentService" />
+	</bean>
+	<bean id="getSecondaryList" class="Action.GetSecondaryList" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+		<property name="searchFormat" ref="searchFormat" />
+	</bean>
+	<bean id="getSimilarNews" class="Action.GetSimilarNews" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+		<property name="contentService" ref="contentService" />
+		<property name="splitService" ref="splitService" />
+		<property name="chooseService" ref="chooseService" />
+	</bean>
+	<bean id="getSimilarNews2" class="Action.GetSimilarNews" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+		<property name="splitService" ref="splitService" />
+		<property name="chooseService" ref="chooseService" />
 	</bean>
 
 	<!-- 把Session工厂注入给hibernateTemplate -->

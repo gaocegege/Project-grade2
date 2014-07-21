@@ -1,4 +1,5 @@
-/DAO/
 /Action/
-/Service/
+/DAO/
 /Domain/
+/Service/
+/struts.xml

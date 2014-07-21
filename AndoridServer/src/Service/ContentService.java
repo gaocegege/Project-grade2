@@ -30,4 +30,8 @@ public class ContentService {
 		//return jsonArray.toString();
 		return result;
 	}
+	public Content getOneContent(int id)
+	{
+		return contentDAO.getOneContent(id);
+	}
 }

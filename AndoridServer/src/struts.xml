@@ -27,5 +27,14 @@
 		<action name="getNewsContent" class="getNewsContent">
 			<result type="json"></result>
 		</action>
+		<action name="getSecondaryList" class="getSecondaryList">
+			<result type="json"></result>
+		</action>
+		<action name="getSimilarNews" class="getSimilarNews">
+			<result type="json"></result>
+		</action>
+		<action name="getSimilarNews2" class="getSimilarNews">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>
