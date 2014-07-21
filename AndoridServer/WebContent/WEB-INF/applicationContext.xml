@@ -147,6 +147,9 @@
 	<bean id="splitService" class="Service.SplitService">
 	</bean>
 	
+	<bean id="chooseService" class="Service.ChooseService">
+	</bean>
+	
 	<bean id="baiduMapService" class="Service.BaiduMapService">
 	</bean>
 
