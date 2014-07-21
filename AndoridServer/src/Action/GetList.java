@@ -53,6 +53,15 @@ public class GetList extends ActionSupport {
 	public void setTypes(int types) {
 		this.types = types;
 	}
+	
+	@JSON(serialize = false)
+	public int getMethod() {
+		return method;
+	}
+
+	public void setMethod(int method) {
+		this.method = method;
+	}
 
 	public String execute() {
 		result = contentService.getContents(id, types, method);

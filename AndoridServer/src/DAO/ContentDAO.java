@@ -35,7 +35,7 @@ public class ContentDAO {
 	{
 		if (id == 0)
 		{
-			id = getMaxId();
+			id = getMaxId()+1;
 		}
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -46,6 +46,7 @@ public class ContentDAO {
 	    	q.setMaxResults(20);
 	    }else{
 	    	q = session.createQuery(" From Content Where id > " + id+ "and types = " + types + "Order by id desc");
+	    	System.out.println(id);
 	    }
 		List<Content> result = q.list();
 		tx.commit();
