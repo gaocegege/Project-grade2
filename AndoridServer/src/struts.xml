@@ -33,7 +33,7 @@
 		<action name="getSimilarNews" class="getSimilarNews">
 			<result type="json"></result>
 		</action>
-		<action name="getSimilarNews2" class="getSimilarNews">
+		<action name="getSimilarNews2" class="getSimilarNews2">
 			<result type="json"></result>
 		</action>
 	</package>
