@@ -80,6 +80,7 @@ public class ContentDAO {
 		Query query = session.createQuery(hql);
 		List<Integer> result = query.list();
 		System.out.println(result.get(0));
+		session.close();
 		return result.get(0);
 	}
 }
