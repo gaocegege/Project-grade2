@@ -14,13 +14,43 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import Domain.Content;
+import Domain.Geo;
 import Domain.KeyWord;
+import Domain.Location;
 import Domain.NewsContent;
 
 public class HtmlService {
 	private ContentService contentService;
 	private KeyWordService keyWordService;
+	private BaiduMapService baiduMapService;
+	private LocationService locationService;
+	private GetLocation getLocation;
 	
+
+	public LocationService getLocationService() {
+		return locationService;
+	}
+
+	public void setLocationService(LocationService locationService) {
+		this.locationService = locationService;
+	}
+
+	public GetLocation getGetLocation() {
+		return getLocation;
+	}
+
+	public void setGetLocation(GetLocation getLocation) {
+		this.getLocation = getLocation;
+	}
+
+	public void setBaiduMapService(BaiduMapService baiduMapService) {
+		this.baiduMapService = baiduMapService;
+	}
+
+	public BaiduMapService getBaiduMapService() {
+		return baiduMapService;
+	}
+
 	public void setContentService(ContentService contentService) {
 		this.contentService = contentService;
 	}
@@ -99,6 +129,7 @@ public class HtmlService {
 				}
 				
 				newsContent.setContents(newsContentStr);
+				System.out.println(title);
 				contentBuf.setImageUrl(imageUrl);
 				contentBuf.setTitle(title);
 				contentBuf.setTypes(types);
@@ -106,8 +137,9 @@ public class HtmlService {
 				contentBuf.setUrl(url);
 				contentBuf.setFrom(from);
 				newsContent.setContent(contentBuf);
-				contentBuf.setNewsContent(newsContent);
+				//to do---------------------------------------------------------------------------------
 				
+				contentBuf.setNewsContent(newsContent);
 				contentService.addContent(contentBuf);
 				
 				Elements keyWordsContainer = docInside.getElementsByClass("art_keywords");
@@ -123,6 +155,15 @@ public class HtmlService {
 //					System.out.println(keyWords.get(j).text());
 				}
 //				System.out.println("Log for the keyWords: End");
+				
+				//get all the location, and save it
+				List<Location> locationList = getLocation.getLocation(newsContentStr);
+				for (int j = 0; j < locationList.size(); j++)
+				{
+					locationList.get(j).setNewsContent(newsContent);
+					System.out.println("FXXK:" + locationList.get(j).getLocation());
+					locationService.addLocation(locationList.get(j));
+				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

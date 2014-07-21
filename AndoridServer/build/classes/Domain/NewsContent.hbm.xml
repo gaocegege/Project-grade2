@@ -22,5 +22,12 @@
 		></property>
 		
 		<one-to-one name="content" class="Domain.Content" constrained="true"></one-to-one>
+		
+		<set name="location" lazy="false" inverse="true" cascade="delete" >
+			<key>
+				<column name="id"/>
+			</key>
+		<one-to-many class="Domain.Location"/>
+		</set>
 	</class>
 </hibernate-mapping>

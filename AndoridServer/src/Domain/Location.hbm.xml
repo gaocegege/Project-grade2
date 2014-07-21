@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Domain.Location" table="location">
+		<id 
+			name="lid" 
+			column="lid"
+			type="int"
+		>
+		<generator class="increment"/>
+		</id> 
+		
+		<property
+			name="location"
+			column="location"
+			update="true"
+			insert="true"
+			not-null="true"
+			type="java.lang.String"
+			length="200"
+		></property>
+		
+		<property 
+			name="lng"
+			column="lng"
+			type="float"
+			update="true"
+			insert="true"
+			not-null="true"
+		></property>
+		
+		<property 
+			name="lat"
+			column="lat"
+			type="float"
+			update="true"
+			insert="true"
+			not-null="true"
+		></property>
+		
+		<many-to-one name="newsContent" column="id" class="Domain.NewsContent" not-null="true"></many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,11 +1,14 @@
 package Domain;
 
+import java.util.Set;
+
 import org.apache.struts2.json.annotations.JSON;
 
 public class NewsContent {
 	private int id;
 	private String contents;
 	private Content content;
+	private Set<Location> location;
 	
 	public void setContents(String contents) {
 		this.contents = contents;
@@ -26,5 +29,13 @@ public class NewsContent {
 	}
 	public int getId() {
 		return id;
+	}
+
+	public void setLocation(Set<Location> location) {
+		this.location = location;
+	}
+
+	public Set<Location> getLocation() {
+		return location;
 	}
 }

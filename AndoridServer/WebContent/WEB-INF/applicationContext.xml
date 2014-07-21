@@ -22,8 +22,7 @@
 		</property>
 		<!-- 数据库地址，这里也要注意一下编码，不然乱码可是很郁闷的哦！ -->
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp;
-			</value>
+			<value>jdbc:mysql://localhost:3306/my_db_androidserver?useUnicode=true&amp;characterEncoding=UTF-8</value>
 		</property>
 		<!--dialect,每个数据库对应的Dialet匹配其平台特性 -->
 		<!-- <property name="dialect"> <value>org.hibernate.dialect.MySQLDialect</value> 
@@ -47,6 +46,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>Domain/KeyWord.hbm.xml</value>
+				<value>Domain/Location.hbm.xml</value>
 				<value>Domain/NewsContent.hbm.xml</value>
 				<value>Domain/Content.hbm.xml</value>
 			</list>
@@ -118,7 +118,17 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-
+	
+	<bean id="locationDAO" class="DAO.LocationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="locationService" class="Service.LocationService">
+		<property name="locationDAO" ref="locationDAO" />
+	</bean>
+	
 	<bean id="contentService" class="Service.ContentService">
 		<property name="contentDAO" ref="contentDAO" />
 	</bean>
@@ -133,13 +143,27 @@
 
 	<bean id="spiderService" class="Service.SpiderService">
 	</bean>
+	
+	<bean id="splitService" class="Service.SplitService">
+	</bean>
+	
+	<bean id="baiduMapService" class="Service.BaiduMapService">
+	</bean>
 
 	<bean id="jsonToJava" class="Service.JsonToJava">
+	</bean>
+	
+	<bean id="getLocation" class="Service.GetLocation">
+		<property name="splitService" ref="splitService" />
+		<property name="baiduMapService" ref="baiduMapService" />
 	</bean>
 
 	<bean id="htmlService" class="Service.HtmlService">
 		<property name="contentService" ref="contentService" />
 		<property name="keyWordService" ref="keyWordService" />
+		<property name="baiduMapService" ref="baiduMapService" />
+		<property name="getLocation" ref="getLocation" />
+		<property name="locationService" ref="locationService" />
 	</bean>
 
 	<bean id="TestAction" class="Action.Test" scope="prototype">
@@ -151,7 +175,6 @@
 	<bean id="spiderAction" class="Action.Spider" scope="prototype">
 		<property name="htmlService" ref="htmlService" />
 	</bean>
-
 
 	<bean id="getListAction" class="Action.GetList" scope="prototype">
 		<property name="contentService" ref="contentService" />

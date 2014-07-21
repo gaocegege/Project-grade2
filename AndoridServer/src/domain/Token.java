@@ -9,6 +9,7 @@ public class Token {
 	private int id;
 	private String cont;
 	private String pos;
+	// jigou or renming
 	private String ne;
 	private int parent;
 	private String relate;
