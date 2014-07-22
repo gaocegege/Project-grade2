@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Token;
+import Service.JsonParserService.JsonToTokens;
 
 //split a sentence
 public class SplitService {

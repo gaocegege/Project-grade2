@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.struts2.json.annotations.JSON;
 
 import Domain.Content;
-import Service.ContentService;
-import Service.JsonToJava;
 import Service.SpiderService;
+import Service.DBService.ContentService;
+import Service.JsonParserService.JsonToJava;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,7 +18,6 @@ public class Test extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private SpiderService spiderService;
 	private String jsonContent;
-	private JsonToJava jsonToJava;
 	private ContentService contentService;
 
 	
@@ -39,15 +38,6 @@ public class Test extends ActionSupport {
 	public String getJsonContent() {
 		return jsonContent;
 	}
-	
-	public void setJsonToJava(JsonToJava jsonToJava) {
-		this.jsonToJava = jsonToJava;
-	}
-
-
-	public JsonToJava getJsonToJava() {
-		return jsonToJava;
-	}
 
 	public void setContentService(ContentService contentService) {
 		this.contentService = contentService;
@@ -66,6 +56,7 @@ public class Test extends ActionSupport {
 		jsonContent = "";
 		jsonContent = spiderService.sendGet(URL);
 		jsonContent  = "[" + jsonContent + "]";
+		JsonToJava jsonToJava = new JsonToJava();
 		List<Content> TestList = jsonToJava.transfer(jsonContent);
 		for (int i = 0; i < TestList.size(); i++)
 		{

@@ -8,8 +8,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import Domain.Content;
-import Service.BaiduService;
 import Service.CompareService;
+import Service.BaiduServices.BaiduService;
 
 public class TestCompare {
 	public static void main(String args[]) throws IOException{/*

@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.struts2.json.annotations.JSON;
 
 import Domain.Content;
-import Service.ContentService;
 import Service.HtmlService;
 import Service.SpiderService;
+import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

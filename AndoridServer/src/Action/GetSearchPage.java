@@ -7,8 +7,8 @@ import org.apache.struts2.json.annotations.JSON;
 
 import DAO.ContentDAO;
 import Domain.Content;
-import Service.FormatSearchURL;
 import Service.SearchFormat;
+import Service.BaiduServices.FormatSearchURL;
 
 import com.opensymphony.xwork2.ActionSupport;
 

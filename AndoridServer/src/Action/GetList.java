@@ -8,7 +8,7 @@ import net.sf.json.JSONArray;
 
 import org.apache.struts2.json.annotations.JSON;
 
-import Service.ContentService;
+import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

@@ -1,4 +1,4 @@
-package Service;
+package Service.DBService;
 
 import DAO.LocationDAO;
 import Domain.Location;

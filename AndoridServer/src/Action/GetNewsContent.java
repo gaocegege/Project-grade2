@@ -2,8 +2,8 @@ package Action;
 
 import org.apache.struts2.json.annotations.JSON;
 
-import Service.ContentService;
-import Service.NewsContentService;
+import Service.DBService.ContentService;
+import Service.DBService.NewsContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

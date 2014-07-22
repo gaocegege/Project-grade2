@@ -8,10 +8,10 @@ import org.apache.struts2.json.annotations.JSON;
 
 import Domain.Content;
 import Domain.Token;
-import Service.BaiduService;
 import Service.ChooseService;
-import Service.ContentService;
 import Service.SplitService;
+import Service.BaiduServices.BaiduService;
+import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

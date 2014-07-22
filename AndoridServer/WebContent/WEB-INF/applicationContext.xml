@@ -125,19 +125,19 @@
 		</property>
 	</bean>
 	
-	<bean id="locationService" class="Service.LocationService">
+	<bean id="locationService" class="Service.DBService.LocationService">
 		<property name="locationDAO" ref="locationDAO" />
 	</bean>
 	
-	<bean id="contentService" class="Service.ContentService">
+	<bean id="contentService" class="Service.DBService.ContentService">
 		<property name="contentDAO" ref="contentDAO" />
 	</bean>
 
-	<bean id="newsContentService" class="Service.NewsContentService">
+	<bean id="newsContentService" class="Service.DBService.NewsContentService">
 		<property name="newsContentDAO" ref="newsContentDAO" />
 	</bean>
 
-	<bean id="keyWordService" class="Service.KeyWordService">
+	<bean id="keyWordService" class="Service.DBService.KeyWordService">
 		<property name="keyWordDAO" ref="keyWordDAO" />
 	</bean>
 
@@ -150,10 +150,7 @@
 	<bean id="chooseService" class="Service.ChooseService">
 	</bean>
 	
-	<bean id="baiduMapService" class="Service.BaiduMapService">
-	</bean>
-
-	<bean id="jsonToJava" class="Service.JsonToJava">
+	<bean id="baiduMapService" class="Service.BaiduServices.BaiduMapService">
 	</bean>
 	
 	<bean id="getLocation" class="Service.GetLocation">
@@ -172,7 +169,6 @@
 	<bean id="TestAction" class="Action.Test" scope="prototype">
 		<property name="contentService" ref="contentService" />
 		<property name="spiderService" ref="spiderService" />
-		<property name="jsonToJava" ref="jsonToJava" />
 	</bean>
 
 	<bean id="spiderAction" class="Action.Spider" scope="prototype">
@@ -195,7 +191,7 @@
 		<property name="formatSearchURL" ref="formatSearchURL" />
 	</bean>
 
-	<bean id="baiduService" class="Service.BaiduService" scope="prototype">
+	<bean id="baiduService" class="Service.BaiduServices.BaiduService" scope="prototype">
 		<property name="contentDAO" ref="contentDAO" />
 	</bean>
 

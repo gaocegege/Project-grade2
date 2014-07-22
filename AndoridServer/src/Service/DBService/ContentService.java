@@ -1,4 +1,4 @@
-package Service;
+package Service.DBService;
 
 import java.util.List;
 

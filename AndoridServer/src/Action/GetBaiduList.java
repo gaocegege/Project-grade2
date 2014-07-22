@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.struts2.json.annotations.JSON;
 
 import Domain.Content;
-import Service.BaiduService;
 import Service.SearchFormat;
+import Service.BaiduServices.BaiduService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

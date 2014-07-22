@@ -1,4 +1,4 @@
-package Service;
+package Service.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +19,7 @@ import org.jsoup.nodes.Document;
 import Domain.Arg;
 import Domain.Content;
 import Domain.Token;
+import Service.SearchFormat;
 
 
 

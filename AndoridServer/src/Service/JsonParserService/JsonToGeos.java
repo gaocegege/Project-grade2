@@ -1,4 +1,4 @@
-package Service;
+package Service.JsonParserService;
 
 import java.util.ArrayList;
 import java.util.List;

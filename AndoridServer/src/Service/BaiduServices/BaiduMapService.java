@@ -1,4 +1,4 @@
-package Service;
+package Service.BaiduServices;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +15,7 @@ import java.util.Map;
 import util.UnicodeDecoder;
 
 import Domain.Geo;
+import Service.JsonParserService.JsonToGeos;
 
 public class BaiduMapService {
 	

@@ -1,4 +1,4 @@
-package Service;
+package Service.JsonParserService;
 
 import java.io.IOException;
 import java.util.ArrayList;  

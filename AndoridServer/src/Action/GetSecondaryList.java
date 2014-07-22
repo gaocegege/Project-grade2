@@ -8,8 +8,8 @@ import org.apache.struts2.json.annotations.JSON;
 import com.opensymphony.xwork2.ActionSupport;
 
 import Domain.Content;
-import Service.BaiduService;
 import Service.SearchFormat;
+import Service.BaiduServices.BaiduService;
 
 public class GetSecondaryList extends ActionSupport{
 	private int pid;

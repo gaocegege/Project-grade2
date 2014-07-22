@@ -1,4 +1,4 @@
-package Service;
+package Service.BaiduServices;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.List;
 
 import DAO.ContentDAO;
 import Domain.Content;
+import Service.SearchFormat;
 
 public class FormatSearchURL {
 	private SearchFormat searchFormat;

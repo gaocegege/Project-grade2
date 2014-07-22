@@ -4,7 +4,7 @@ import java.util.List;
 
 
 import Domain.Content;
-import Service.JsonToJava;
+import Service.JsonParserService.JsonToJava;
 
 public class JsonTest {
 	private static JsonToJava jj;

@@ -7,6 +7,7 @@ import java.util.List;
 import Domain.Geo;
 import Domain.Location;
 import Domain.Token;
+import Service.BaiduServices.BaiduMapService;
 
 public class GetLocation {
 	private SplitService splitService;

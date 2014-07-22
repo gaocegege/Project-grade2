@@ -18,6 +18,10 @@ import Domain.Geo;
 import Domain.KeyWord;
 import Domain.Location;
 import Domain.NewsContent;
+import Service.BaiduServices.BaiduMapService;
+import Service.DBService.ContentService;
+import Service.DBService.KeyWordService;
+import Service.DBService.LocationService;
 
 public class HtmlService {
 	private ContentService contentService;
@@ -171,43 +175,4 @@ public class HtmlService {
 		}
 		return;
 	}
-	
-//	public static void main(String args[]) throws IOException
-//	{
-//		ContentService cs = new ContentService();
-//		String queryUrl = "http://news.sina.com.cn/china/";
-//		Document doc;
-//		doc = Jsoup.connect(queryUrl).get();
-//		Element news = doc.getElementById("subShowContent1_static");
-//		Elements newsList = news.getElementsByClass("news-item");
-//		
-//		// the content item
-//		Content contentBuf = new Content();
-//		NewsContent newsContent = new NewsContent();
-//		String time = newsList.get(0).getElementsByClass("time").text();
-//		String title = newsList.get(0).getElementsByTag("h2").get(0).getElementsByTag("a").get(0).text();
-//		String url = newsList.get(0).getElementsByTag("h2").get(0).getElementsByTag("a").get(0).attr("href").toString();
-//		Document docInside;
-//		docInside = Jsoup.connect(url).get();
-//		Element newsbody = docInside.getElementById("artibody");
-//		String newsContentStr = newsbody.getElementsByTag("p").text();
-//		Elements image = newsbody.getElementsByClass("img_wrapper");
-//		String imageUrl;
-//		if(image.size()==0){
-//			imageUrl = null;
-//		}else{
-//			imageUrl = image.get(0).getElementsByTag("img").get(0).attr("src").toString();
-//		}
-//		newsContent.setContents(newsContentStr);
-//		contentBuf.setImageUrl(imageUrl);
-//		contentBuf.setTitle(title);
-//		contentBuf.setTypes(0);
-//		contentBuf.setTime(time);
-//		String url2 = new String(url.getBytes(),"utf-8");
-//		//System.out.println(new String(url.getBytes(), "utf-8"));
-//		contentBuf.setUrl(url2);
-//		newsContent.setContent(contentBuf);
-//		contentBuf.setNewsContent(newsContent);
-//
-//	}
 }
