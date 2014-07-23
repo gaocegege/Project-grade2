@@ -7,7 +7,6 @@ import java.util.List;
 import Domain.Arg;
 import Domain.Token;
 
-
 public class SearchFormat {
 	private List<String> nes = new ArrayList<String>();
 	private List<String> alt = new ArrayList<String>();
@@ -26,10 +25,16 @@ public class SearchFormat {
 
 		// get
 		// ===============================================================
-		System.out.println(sen.indexOf("Â¡Â°"));
 		if (sen.contains("Â¡Â°")) {
 			int beg = sen.indexOf("Â¡Â°");
 			int end = sen.indexOf("Â¡Â±", beg);
+			nes.add(sen.substring(beg + 1, end));
+			found = true;
+		}
+
+		if (sen.contains("¡¶")) {
+			int beg = sen.indexOf("¡¶");
+			int end = sen.indexOf("¡·", beg);
 			nes.add(sen.substring(beg + 1, end));
 			found = true;
 		}
@@ -41,6 +46,10 @@ public class SearchFormat {
 				String cur = tokens.get(i).getCont();
 				if (cur.length() <= 1)
 					continue;
+				if (tokens.get(i).getRelate().equals("ATT")) {
+					if (i + 1 < tokens.size())
+						cur += tokens.get(i + 1).getCont();
+				}
 				if (found) {
 					alt.add(cur);
 				} else {
@@ -97,7 +106,7 @@ public class SearchFormat {
 		// get ATT
 		// ================================================================================
 		List<String> attlist = new ArrayList<String>();
-		
+
 		for (int i = 0; i < tokens.size(); i++) {
 			boolean inUsed = false;
 			for (int j = 0; j < used.size(); j++) {
@@ -141,14 +150,13 @@ public class SearchFormat {
 			nes.add(alt.get(0));
 			alt.remove(0);
 		}
-		if(alt.size()<=1){
-			for(int i=0;i<alt.size();i++)
-			{
+		if (alt.size() <= 1) {
+			for (int i = 0; i < alt.size(); i++) {
 				nes.add(alt.get(0));
 				alt.remove(0);
 			}
 		}
-			
+
 		System.out.println(alt.size());
 		String ss = "";
 		for (int i = 0; i < nes.size(); i++) {

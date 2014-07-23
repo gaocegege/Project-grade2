@@ -1,6 +1,7 @@
 package Action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.json.annotations.JSON;
@@ -58,6 +59,8 @@ public class GetSecondaryList extends ActionSupport{
 		System.out.println(str);
 		String searchContext = searchFormat.getSearchSent(str);
 		result = baiduService.search(searchContext, pid);
+		if(result == null)
+			result = new ArrayList<Content>();
 		return SUCCESS;
 	}
 }
