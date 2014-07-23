@@ -127,7 +127,7 @@ public class HtmlService {
 				// the content of the news
 				String newsContentStr = newsbody.getElementsByTag("p").text();
 				// if the news are too long, continue (will be fixed in the future)
-				// if it is, the code will be paused there
+				// BUG::::::::::if it is, the code will be paused there
 				if(newsContentStr.length()>=500)
 				{
 					System.out.println("The content is too long");
