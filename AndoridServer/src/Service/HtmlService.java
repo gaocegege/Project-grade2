@@ -126,12 +126,6 @@ public class HtmlService {
 				Element newsbody = docInside.getElementById("artibody");
 				// the content of the news
 				String newsContentStr = newsbody.getElementsByTag("p").text();
-<<<<<<< HEAD
-				// fit the database
-				if(newsContentStr.length()>=4000)
-					continue;
-				//lai yuan
-=======
 				// if the news are too long, continue (will be fixed in the future)
 				// if it is, the code will be paused there
 				if(newsContentStr.length()>=500)
@@ -140,7 +134,6 @@ public class HtmlService {
 					continue;
 				}
 				//source of the news
->>>>>>> Cece-From-17
 				String from = docInside.getElementById("media_name").text();
 				System.out.println("From: " + from);
 				Elements image = newsbody.getElementsByClass("img_wrapper");
