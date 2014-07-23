@@ -21,10 +21,14 @@ public class LocationDAO {
 	public void addLocation(Location location)
 	{
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
 		if (session.get(KeyWord.class, location.getLid()) == null)
 			session.save(location);
-		tx.commit();
+		//tx.commit();
+		session.getTransaction().commit();
+		
 		session.close();
 	}
 }

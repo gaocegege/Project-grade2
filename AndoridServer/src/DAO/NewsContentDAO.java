@@ -24,13 +24,17 @@ public class NewsContentDAO {
 	public NewsContent getNewsContent(int id)
 	{
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
 		Query q = session.createQuery(" From NewsContent Where id = " + id);
 		List<NewsContent> results = q.list();
 		if(results.size() == 0)
 			return null;
 		NewsContent result = results.get(0);
-		tx.commit();
+		//tx.commit();
+		session.getTransaction().commit();
+		
 		session.close();
 		return result;
 	}

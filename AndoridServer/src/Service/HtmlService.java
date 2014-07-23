@@ -97,8 +97,10 @@ public class HtmlService {
 			doc = Jsoup.connect(queryUrl).get();
 			Element news = doc.getElementById("subShowContent1_static");
 			Elements newsList = news.getElementsByClass("news-item");
-			for (int i = 0; i < newsList.size(); i++)
+			// get the news by time
+			for (int i = newsList.size() - 1; i >= 0; i--)
 			{
+				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 				if (!newsList.get(i).attr("id").equals(""))
 					continue;
 				
@@ -109,31 +111,44 @@ public class HtmlService {
 				String time = newsList.get(i).getElementsByClass("time").text();
 				String title = newsList.get(i).getElementsByTag("h2").get(0).getElementsByTag("a").get(0).text();
 				String url = newsList.get(i).getElementsByTag("h2").get(0).getElementsByTag("a").get(0).attr("href").toString();
+				//pass the video and slide
 				if(url.contains("slide")||url.contains("video"))
 					continue;
+				//pass the dumplicate news
+				if (contentService.hasContained(title))
+				{
+					continue;
+				}
+				System.out.println("Get Inside Html: Begin~");
 				// get the content page
-				Document docInside;
-				docInside = Jsoup.connect(url).get();
+				Document docInside = Jsoup.connect(url).get();
+				System.out.println("Get Inside Html: End~");
 				Element newsbody = docInside.getElementById("artibody");
 				// the content of the news
 				String newsContentStr = newsbody.getElementsByTag("p").text();
-				// fit the database
-				if(newsContentStr.length()>=4000)
-					break;
-				//lai yuan
+				// if the news are too long, continue (will be fixed in the future)
+				// if it is, the code will be paused there
+				if(newsContentStr.length()>=500)
+				{
+					System.out.println("The content is too long");
+					continue;
+				}
+				//source of the news
 				String from = docInside.getElementById("media_name").text();
 				System.out.println("From: " + from);
 				Elements image = newsbody.getElementsByClass("img_wrapper");
 				// get the url of the image(if it have)
 				String imageUrl;
-				if(image.size()==0){
+				if(image.size()==0)
+				{
 					imageUrl = null;
-				}else{
+				}
+				else
+				{
 					imageUrl = image.get(0).getElementsByTag("img").get(0).attr("src").toString();
 				}
-				
+				System.out.println("Set the values");
 				newsContent.setContents(newsContentStr);
-				System.out.println(title);
 				contentBuf.setImageUrl(imageUrl);
 				contentBuf.setTitle(title);
 				contentBuf.setTypes(types);
@@ -142,12 +157,13 @@ public class HtmlService {
 				contentBuf.setFrom(from);
 				newsContent.setContent(contentBuf);
 				//to do---------------------------------------------------------------------------------
-				
+				System.out.println("Add Content: Begin~");
 				contentBuf.setNewsContent(newsContent);
 				contentService.addContent(contentBuf);
+				System.out.println("Add Content: End~");
 				
 				Elements keyWordsContainer = docInside.getElementsByClass("art_keywords");
-//				System.out.println("Log for the keyWords: Begin");
+				System.out.println("Log for the keyWords: Begin");
 				Elements keyWords = keyWordsContainer.get(0).getElementsByTag("a");
 				for (int j = 0; j < keyWords.size(); j++)
 				{
@@ -156,9 +172,9 @@ public class HtmlService {
 					keyWord.setContent(contentBuf);
 					keyWord.setKeyWord(keyWords.get(j).text());
 					keyWordService.addKeyWord(keyWord);
-//					System.out.println(keyWords.get(j).text());
+					System.out.println(keyWords.get(j).text());
 				}
-//				System.out.println("Log for the keyWords: End");
+				System.out.println("Log for the keyWords: End");
 				
 				//get all the location, and save it
 				List<Location> locationList = getLocation.getLocation(newsContentStr);
