@@ -119,7 +119,7 @@ public class HtmlService {
 				String newsContentStr = newsbody.getElementsByTag("p").text();
 				// fit the database
 				if(newsContentStr.length()>=4000)
-					break;
+					continue;
 				//lai yuan
 				String from = docInside.getElementById("media_name").text();
 				System.out.println("From: " + from);
