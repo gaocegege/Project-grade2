@@ -31,6 +31,20 @@ public class SearchFormat {
 			nes.add(sen.substring(beg + 1, end));
 			found = true;
 		}
+		
+		if (sen.contains("\"")) {
+			int beg = sen.indexOf("\"");
+			int end = sen.indexOf("\"", beg);
+			nes.add(sen.substring(beg + 1, end));
+			found = true;
+		}
+
+		if (sen.contains("¡°")) {
+			int beg = sen.indexOf("¡°");
+			int end = sen.indexOf("¡±", beg);
+			nes.add(sen.substring(beg + 1, end));
+			found = true;
+		}
 
 		if (sen.contains("¡¶")) {
 			int beg = sen.indexOf("¡¶");

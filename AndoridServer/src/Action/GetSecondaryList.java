@@ -57,7 +57,9 @@ public class GetSecondaryList extends ActionSupport{
 		System.out.println(title);
 		String str=new String(title.getBytes("ISO-8859-1"),"UTF-8");
 		System.out.println(str);
+		str = str.replaceAll(" ", "%20");
 		String searchContext = searchFormat.getSearchSent(str);
+		System.out.println(searchContext);
 		result = baiduService.search(searchContext, pid);
 		if(result == null)
 			result = new ArrayList<Content>();

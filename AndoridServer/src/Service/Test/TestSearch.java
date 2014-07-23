@@ -7,6 +7,6 @@ import Service.SearchFormat;
 public class TestSearch {
 	public static void main(String args[]) throws IOException{
 		SearchFormat sf = new SearchFormat();
-		System.out.println(sf.getSearchSent("韩国首个同性恋婚姻登记申请被拒"));
+		System.out.println(sf.getSearchSent("信用卡用卡环境复杂%20遇盗刷应第一时间联系发卡行"));
 	}
 }
