@@ -23,12 +23,21 @@ public class ContentDAO {
 	
 	public void addContent(Content content)
 	{
+		System.out.println("contentDAO: add Content-> begin");
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		if (session.get(Content.class, content.getId()) == null)
-			session.save(content);
-		tx.commit();
+		
+		//Test
+		
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
+		session.save(content);
+		
+		//tx.commit();
+		session.getTransaction().commit();
+		
 		session.close();
+		System.out.println("contentDAO: add Content-> end");
 	}
 	
 	public List<Content> getContents(int id, int types,int method)
@@ -38,7 +47,9 @@ public class ContentDAO {
 			id = getMaxId()+1;
 		}
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
 		Query q;
 	    if(method == 0){
 	    	q = session.createQuery(" From Content Where id < " + id+ "and types = " + types + "Order by id desc");
@@ -49,7 +60,9 @@ public class ContentDAO {
 	    	System.out.println(id);
 	    }
 		List<Content> result = q.list();
-		tx.commit();
+		//tx.commit();
+		session.getTransaction().commit();
+		
 		session.close();
 		return result;
 	}
@@ -61,13 +74,16 @@ public class ContentDAO {
 			id = getMaxId();
 		}
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
 		Query q = session.createQuery(" From Content Where id = " + id);
 		List<Content> results = q.list();
 		if(results.size() == 0)
 			return null;
 		Content result = results.get(0);
-		tx.commit();
+		//tx.commit();
+		session.getTransaction().commit();
 		session.close();
 		return result;
 	}
@@ -75,12 +91,32 @@ public class ContentDAO {
 	private int getMaxId()
 	{
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
 		String hql = "select MAX(u.id) from Content as u";
 		Query query = session.createQuery(hql);
 		List<Integer> result = query.list();
 		System.out.println(result.get(0));
 		session.close();
 		return result.get(0);
+	}
+	
+	public boolean hasContained(String str)
+	{
+		System.out.println("HasContained in ContentDAO Begin~");
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery(" From Content Where title = '" + str + "'");
+		List<Content> results = q.list();
+		session.close();
+		if(results.size() == 0)
+		{
+			System.out.println("Title: " + str + "\nUse: No");
+			System.out.println("HasContained in ContentDAO End~");
+			return false;
+		}
+		else
+		{
+			System.out.println("Title: " + str + "\nUse: Yes");
+			System.out.println("HasContained in ContentDAO End~");
+			return true;
+		}
 	}
 }

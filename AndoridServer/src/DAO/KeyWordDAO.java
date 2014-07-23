@@ -23,10 +23,14 @@ public class KeyWordDAO extends ActionSupport {
 	public void addKeyWord(KeyWord keyWord)
 	{
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		//Transaction tx = session.beginTransaction();
+		session.beginTransaction();
+		
 		if (session.get(KeyWord.class, keyWord.getKid()) == null)
 			session.save(keyWord);
-		tx.commit();
+		//tx.commit();
+		session.getTransaction().commit();
+		
 		session.close();
 	}
 }

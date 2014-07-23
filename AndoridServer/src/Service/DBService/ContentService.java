@@ -34,4 +34,9 @@ public class ContentService {
 	{
 		return contentDAO.getOneContent(id);
 	}
+	
+	public boolean hasContained(String str)
+	{
+		return contentDAO.hasContained(str);
+	}
 }
