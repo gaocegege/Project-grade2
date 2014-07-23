@@ -38,7 +38,8 @@ public class BaiduService {
 		Document doc;
 		doc = Jsoup.connect(url).get();
 		Element news = doc.getElementById("content_left");
-		Elements newsList = news.getElementsByTag("li");
+		//Elements newsList = news.getElementsByTag("li");
+		Elements newsList = news.getElementsByClass("result");
 		int num;
 		if (newsList.size() > 20)
 			num = 20;
@@ -87,10 +88,12 @@ public class BaiduService {
 		String urlB = "&tn=news&from=news&cl=2&rn=20&ct=0&clk=sortbytime";
 		
 		String url = urlA + searchContext + urlB + "&pn=" + pid;
+		System.out.println(url);
 		Document doc;
 		doc = Jsoup.connect(url).get();
 		Element news = doc.getElementById("content_left");
-		Elements newsList = news.getElementsByTag("li");
+		//Elements newsList = news.getElementsByTag("li");
+		Elements newsList = news.getElementsByClass("result");
 		int num;
 		if (newsList.size() > 20)
 			num = 20;

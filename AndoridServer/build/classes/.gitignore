@@ -1,2 +1,5 @@
-/Service/
 /Action/
+/DAO/
+/Domain/
+/Service/
+/util/
