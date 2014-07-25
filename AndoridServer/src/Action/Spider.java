@@ -68,7 +68,8 @@ public class Spider extends ActionSupport {
 		htmlService.parseHtml(URLWorld);
 		
 		htmlService.parseHtml(URLSociety);
-
+		
+		System.out.println("Over!!");
 		return SUCCESS;
 	}
 

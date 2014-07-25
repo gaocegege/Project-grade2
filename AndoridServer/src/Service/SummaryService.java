@@ -3,6 +3,7 @@ package Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import Domain.Importance;
 
@@ -44,6 +45,10 @@ public class SummaryService {
 	
 	public List<String> getSummary(List<Importance> important, String content) throws LoadModelException
 	{
+		Properties property = System.getProperties();
+		String str = property.getProperty("user.dir");
+		System.out.println(str);
+		// can not find the seg.m
 		CWSTagger tag = new CWSTagger("./models/seg.m");
 		List<String> sentenceList = getAllSentences(content);
 		List<Integer> importantList = new ArrayList<Integer>();

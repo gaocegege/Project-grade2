@@ -140,6 +140,9 @@
 	<bean id="keyWordService" class="Service.DBService.KeyWordService">
 		<property name="keyWordDAO" ref="keyWordDAO" />
 	</bean>
+	
+	<bean id="keyWordServiceOld" class="Service.KeyWordServiceOld">
+	</bean>
 
 	<bean id="spiderService" class="Service.SpiderService">
 	</bean>
@@ -148,6 +151,9 @@
 	</bean>
 	
 	<bean id="chooseService" class="Service.ChooseService">
+	</bean>
+	
+	<bean id="summaryService" class="Service.SummaryService">
 	</bean>
 	
 	<bean id="baiduMapService" class="Service.BaiduServices.BaiduMapService">
@@ -177,6 +183,12 @@
 
 	<bean id="getListAction" class="Action.GetList" scope="prototype">
 		<property name="contentService" ref="contentService" />
+	</bean>
+	
+	<bean id="getSumAction" class="Action.GetSum" scope="prototype">
+		<property name="contentService" ref="contentService" />
+		<property name="keyWordServiceOld" ref="keyWordServiceOld" />
+		<property name="summaryService" ref="summaryService" />
 	</bean>
 
 	<bean id="searchFormat" class="Service.SearchFormat" scope="prototype">

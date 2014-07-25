@@ -100,9 +100,12 @@ public class HtmlService {
 			// get the news by time
 			for (int i = newsList.size() - 1; i >= 0; i--)
 			{
-				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+				System.out.println("for loop: " + i);
 				if (!newsList.get(i).attr("id").equals(""))
+				{
+					System.out.println("id = ''");
 					continue;
+				}
 				
 				// the content item
 				Content contentBuf = new Content();
@@ -128,7 +131,7 @@ public class HtmlService {
 				String newsContentStr = newsbody.getElementsByTag("p").text();
 				// if the news are too long, continue (will be fixed in the future)
 				// BUG::::::::::if it is, the code will be paused there
-				if(newsContentStr.length()>=500)
+				if(newsContentStr.length()>=4000)
 				{
 					System.out.println("The content is too long");
 					continue;

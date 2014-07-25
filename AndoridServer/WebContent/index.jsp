@@ -20,7 +20,7 @@
 	        	document.getElementById("container").innerHTML = data.jsonContent;
 	        	//alert("1");
 	        }
-	    });               
+	    });
 	}
 	//setInterval("send()",5000);
 	send();
