@@ -34,9 +34,11 @@ public class KeyWordServiceOld
 		try {
 			// get the stopwords
 			System.out.println("Get the key words: begin");
-			StopWords sw= new StopWords("models/stopwords");
+			// please replace the "./models/stopwords" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			StopWords sw= new StopWords("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\stopwords");
 			CWSTagger seg;
-			seg = new CWSTagger("models/seg.m");
+			// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			seg = new CWSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m");
 			AbstractExtractor key = new WordExtract(seg,sw);
 			
 			List<Importance> result = new ArrayList<Importance>();

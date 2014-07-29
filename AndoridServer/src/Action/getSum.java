@@ -73,7 +73,7 @@ public class GetSum extends ActionSupport {
 		try {
 			String content  = contentService.getOneContent(id).getNewsContent().getContents();
 			List<Importance> importance = keyWordServiceOld.getImportant(content);
-			List<String> result = summaryService.getSummary(importance, content);
+			summary = summaryService.getSummary(importance, content);
 			return SUCCESS;
 		} catch (LoadModelException e) {
 			System.out.println("GetSum: ERR!");

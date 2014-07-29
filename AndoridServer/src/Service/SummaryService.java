@@ -1,9 +1,12 @@
 package Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+
+import org.apache.struts2.ServletActionContext;
 
 import Domain.Importance;
 
@@ -47,9 +50,12 @@ public class SummaryService {
 	{
 		Properties property = System.getProperties();
 		String str = property.getProperty("user.dir");
-		System.out.println(str);
+		
 		// can not find the seg.m
-		CWSTagger tag = new CWSTagger("./models/seg.m");
+//		System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
+		// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		CWSTagger tag;
+		tag = new CWSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m");
 		List<String> sentenceList = getAllSentences(content);
 		List<Integer> importantList = new ArrayList<Integer>();
 		
