@@ -1,5 +1,10 @@
 package Domain;
 
+/**
+ * 新闻地点类（数据库）
+ * @author cece
+ *
+ */
 public class Location {
 	private int lid;
 	private String location;

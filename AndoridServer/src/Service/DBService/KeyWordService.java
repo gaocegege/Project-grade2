@@ -2,7 +2,11 @@ package Service.DBService;
 
 import DAO.KeyWordDAO;
 import Domain.KeyWord;
-
+/**
+ * 数据库访问类
+ * @author cece
+ *
+ */
 public class KeyWordService {
 	private KeyWordDAO keyWordDAO;
 

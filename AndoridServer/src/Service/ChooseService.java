@@ -5,6 +5,11 @@ import java.util.List;
 
 import Domain.Content;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class ChooseService {
 	public List<Content> choose(List<Content>pro,List<String>title){
 		List<Content> result = new ArrayList<Content>();

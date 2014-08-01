@@ -7,6 +7,11 @@ import java.util.List;
 import Domain.Arg;
 import Domain.Token;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class SearchFormat {
 	private List<String> nes = new ArrayList<String>();
 	private List<String> alt = new ArrayList<String>();

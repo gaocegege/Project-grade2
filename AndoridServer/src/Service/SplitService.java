@@ -15,7 +15,11 @@ import java.util.List;
 import Domain.Token;
 import Service.JsonParserService.JsonToTokens;
 
-//split a sentence
+/**
+ * 分词服务类
+ * @author Lixu
+ *
+ */
 public class SplitService {
 	private List<Token> tokens;
 

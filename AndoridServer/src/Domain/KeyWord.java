@@ -1,5 +1,10 @@
 package Domain;
 
+/**
+ * 关键词类（数据库）
+ * @author cece
+ *
+ */
 public class KeyWord {
 	private int kid;
 	private String keyWord;

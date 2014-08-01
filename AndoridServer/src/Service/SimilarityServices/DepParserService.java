@@ -5,6 +5,11 @@ import edu.fudan.nlp.parser.dep.DependencyTree;
 import edu.fudan.nlp.parser.dep.JointParser;
 import edu.fudan.util.exception.LoadModelException;
 
+/**
+ * 封装分词生成树的类
+ * @author cece
+ *
+ */
 public class DepParserService {
 
 	private JointParser parser;

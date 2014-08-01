@@ -11,6 +11,11 @@ import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * ≈¿»°–¬Œ≈
+ * @author cece
+ *
+ */
 public class Spider extends ActionSupport {
 	/**
 	 * 

@@ -11,6 +11,11 @@ import Service.BaiduServices.BaiduService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 得到时间轴列表
+ * @author Li Xu
+ * 
+ */
 public class GetBaiduList extends ActionSupport {
 	private int id;
 	private int pid;

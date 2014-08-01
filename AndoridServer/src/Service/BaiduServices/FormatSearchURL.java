@@ -8,7 +8,11 @@ import java.util.List;
 import DAO.ContentDAO;
 import Domain.Content;
 import Service.SearchFormat;
-
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class FormatSearchURL {
 	private SearchFormat searchFormat;
 	private ContentDAO contentDAO ;

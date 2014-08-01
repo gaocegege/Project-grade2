@@ -11,10 +11,12 @@ import Service.JsonParserService.JsonToJava;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * ÎÞ×÷ÓÃ
+ * @author cece
+ *
+ */
 public class Test extends ActionSupport {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private SpiderService spiderService;
 	private String jsonContent;

@@ -9,7 +9,11 @@ import java.util.Date;
 import java.util.regex.Matcher;  
 import java.util.regex.Pattern;  
   
-
+/**
+ * 废弃
+ * @author cece
+ *
+ */
 public class SpiderService {  
     public String sendGet(String url) {  
         // 定义一个字符串用来存储网页内容  

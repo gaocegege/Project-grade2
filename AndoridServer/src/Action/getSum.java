@@ -13,10 +13,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.fudan.util.exception.LoadModelException;
 
+/**
+ * µÃµ½ÕªÒª
+ * @author cece
+ *
+ */
 public class GetSum extends ActionSupport {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private SummaryService summaryService;
 	private KeyWordServiceOld keyWordServiceOld;

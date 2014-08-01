@@ -14,7 +14,11 @@ import edu.fudan.ml.types.Dictionary;
 import edu.fudan.nlp.cn.tag.CWSTagger;
 import edu.fudan.util.exception.LoadModelException;
 
-
+/**
+ * 获得新闻摘要的服务类
+ * @author cece
+ *
+ */
 public class SummaryService {
 	private List<String> sentence;
 

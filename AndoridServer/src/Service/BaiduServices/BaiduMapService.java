@@ -17,6 +17,11 @@ import util.UnicodeDecoder;
 import Domain.Geo;
 import Service.JsonParserService.JsonToGeos;
 
+/**
+ * 调用百度API获得位置的服务类
+ * @author cece
+ *
+ */
 public class BaiduMapService {
 	
 	public Geo getGeo(String str) throws IOException

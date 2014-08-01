@@ -3,6 +3,11 @@ package Service.SimilarityServices;
 import edu.fudan.nlp.parser.dep.DependencyTree;
 import edu.fudan.nlp.similarity.TreeKernel;
 
+/**
+ * 相似度判别的服务类
+ * @author cece
+ *
+ */
 public class SimilarityService {
 	private TreeKernel treeKernel;
 	

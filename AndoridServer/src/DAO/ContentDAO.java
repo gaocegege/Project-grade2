@@ -9,7 +9,11 @@ import org.hibernate.Transaction;
 
 import Domain.Content;
 
-
+/**
+ * 新闻条目的数据库操作类
+ * @author cece
+ *
+ */
 public class ContentDAO {
 	private SessionFactory sessionFactory;
 

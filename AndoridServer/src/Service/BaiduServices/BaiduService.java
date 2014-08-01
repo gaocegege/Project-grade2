@@ -14,6 +14,11 @@ import Domain.Content;
 import Domain.KeyWord;
 import Domain.NewsContent;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class BaiduService {
 	private ContentDAO contentDAO;
 	

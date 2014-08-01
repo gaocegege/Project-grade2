@@ -2,6 +2,11 @@ package Domain;
 
 import net.sf.json.JSONArray;
 
+/**
+ * ·ÏÆú
+ * @author cece
+ *
+ */
 public class OriginContent {
 	private Boolean success;
 	private int total;

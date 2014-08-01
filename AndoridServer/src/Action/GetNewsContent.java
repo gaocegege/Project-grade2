@@ -7,6 +7,11 @@ import Service.DBService.NewsContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 得到新闻正文
+ * @author cece
+ *
+ */
 public class GetNewsContent extends ActionSupport {
 	private int id;
 	private String result;

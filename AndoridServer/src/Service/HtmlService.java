@@ -23,6 +23,11 @@ import Service.DBService.ContentService;
 import Service.DBService.KeyWordService;
 import Service.DBService.LocationService;
 
+/**
+ * 关键类，获得新闻信息的服务类，被spider调用
+ * @author cece and Lixu
+ *
+ */
 public class HtmlService {
 	private ContentService contentService;
 	private KeyWordService keyWordService;
@@ -70,7 +75,11 @@ public class HtmlService {
 	public ContentService getContentService() {
 		return contentService;
 	}
-
+	
+	/**
+	 * 
+	 * @param queryUrl
+	 */
 	//get news from sina
 	public void parseHtml(String queryUrl)
 	{

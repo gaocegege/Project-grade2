@@ -1,5 +1,10 @@
 package Domain;
 
+/**
+ * æ≠Œ≥∂»¿‡
+ * @author cece
+ *
+ */
 public class Geo {
 	private float lng;
 	private float lat;
