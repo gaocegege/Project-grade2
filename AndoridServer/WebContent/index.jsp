@@ -12,7 +12,7 @@
 	<script type="text/javascript">
 	function send(){
 		$.ajax({
-			url : "test.action",
+			url : "spider.action",
 	        type : "get",
 	        //data : "pageNum=" + pageNum,
 	        dataType: "json",
@@ -20,9 +20,10 @@
 	        	document.getElementById("container").innerHTML = data.jsonContent;
 	        	//alert("1");
 	        }
-	    });               
+	    });
 	}
-	setInterval("send()",5000);
+	//setInterval("send()",5000);
+	send();
 	</script>
 </body>
 </html>

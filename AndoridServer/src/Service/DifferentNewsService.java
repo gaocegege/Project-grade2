@@ -11,6 +11,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class DifferentNewsService {
 	public static List<String> getNews(String title) throws IOException
 	{

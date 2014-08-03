@@ -1,36 +1,32 @@
-package domain;
+package Domain;
 
+import java.util.Set;
+
+import org.apache.struts2.json.annotations.JSON;
+
+/**
+ * 新闻条目类（数据库）
+ * @author cece
+ *
+ */
 public class Content {
 	private String title;
-	private String img;
-	private String keywords;
-	private int count;
+	private String url;
+	private String imageUrl;
 	private String from;
 	private String time;
 	private int id;
+	private int types;
+	// one to one 
+	private NewsContent newsContent;
+	// one to many
+	private Set<KeyWord> keyWord;
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	public String getTitle() {
 		return title;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
-	public String getImg() {
-		return img;
-	}
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-	public String getKeywords() {
-		return keywords;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	public int getCount() {
-		return count;
 	}
 	public void setFrom(String from) {
 		this.from = from;
@@ -49,5 +45,38 @@ public class Content {
 	}
 	public int getId() {
 		return id;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setTypes(int types) {
+		this.types = types;
+	}
+	public int getTypes() {
+		return types;
+	}
+	public void setNewsContent(NewsContent newsContent) {
+		this.newsContent = newsContent;
+	}
+	@JSON(serialize=false)
+	public NewsContent getNewsContent() {
+		return newsContent;
+	}
+	public void setKeyWord(Set<KeyWord> keyWord) {
+		this.keyWord = keyWord;
+	}
+
+	@JSON(serialize=false)
+	public Set<KeyWord> getKeyWord() {
+		return keyWord;
 	}
 }

@@ -1,5 +1,10 @@
-package domain;
+package Domain;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class Arg {
 	private int id;
 	private String type;

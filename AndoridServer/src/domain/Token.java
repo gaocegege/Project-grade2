@@ -1,14 +1,20 @@
-package domain;
+package Domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.json.JSONArray;
 
+/**
+ * API得到的单元
+ * @author Lixu
+ *
+ */
 public class Token {
 	private int id;
 	private String cont;
 	private String pos;
+	// jigou or renming
 	private String ne;
 	private int parent;
 	private String relate;

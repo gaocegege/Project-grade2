@@ -2,9 +2,9 @@ package Service.Test;
 
 import java.util.List;
 
-import domain.Content;
 
-import Service.JsonToJava;
+import Domain.Content;
+import Service.JsonParserService.JsonToJava;
 
 public class JsonTest {
 	private static JsonToJava jj;
