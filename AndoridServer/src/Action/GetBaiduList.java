@@ -10,6 +10,7 @@ import Service.SearchFormat;
 import Service.BaiduServices.BaiduService;
 import Service.DBService.ContentService;
 import Service.SimilarityServices.SimilarityService;
+import Service.ThreadServices.ThreadService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,7 +27,17 @@ public class GetBaiduList extends ActionSupport {
 	private BaiduService baiduService;
 	private SimilarityService similarityService;
 	private ContentService contentService;
-	
+//	private ThreadService threadService;
+//	
+//	public void setThreadService(ThreadService threadService) {
+//		this.threadService = threadService;
+//	}
+//	
+//	@JSON(serialize=false)
+//	public ThreadService getThreadService() {
+//		return threadService;
+//	}
+
 	@JSON(serialize=false)
 	public ContentService getContentService() {
 		return contentService;
@@ -97,6 +108,7 @@ public class GetBaiduList extends ActionSupport {
 			if (re < 0.1)
 				result.remove(i);
 		}
+//		result = threadService.dealWithResults(contentService.getOneContent(id).getTitle(), bufList);
 		return SUCCESS;
 	}
 }

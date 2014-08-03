@@ -23,7 +23,7 @@
 	    });
 	}
 	//setInterval("send()",5000);
-	send();
+	//send();
 	</script>
 </body>
 </html>
