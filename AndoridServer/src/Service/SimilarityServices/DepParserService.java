@@ -16,12 +16,12 @@ public class DepParserService {
 	
 	public DepParserService() throws Exception
 	{
-		parser = new JointParser("models/dep.m");
+		parser = new JointParser("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\dep.m");
 	}
 	
 	public DependencyTree getTree(String str) throws Exception
 	{
-		POSTagger tag = new POSTagger("models/seg.m","models/pos.m");
+		POSTagger tag = new POSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m","E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\pos.m");
 		String[][] s = tag.tag2Array(str);
 		try {
 			DependencyTree tree = parser.parse2T(s[0],s[1]);

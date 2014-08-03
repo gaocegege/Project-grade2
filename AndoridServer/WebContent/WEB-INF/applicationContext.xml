@@ -159,6 +159,9 @@
 	<bean id="baiduMapService" class="Service.BaiduServices.BaiduMapService">
 	</bean>
 	
+	<bean id="similarityService" class="Service.SimilarityServices.SimilarityService" scope="prototype">
+	</bean>
+	
 	<bean id="getLocation" class="Service.GetLocation">
 		<property name="splitService" ref="splitService" />
 		<property name="baiduMapService" ref="baiduMapService" />
@@ -209,6 +212,8 @@
 
 	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
+		<property name="similarityService" ref="similarityService"/>
+		<property name="contentService" ref="contentService" />
 	</bean>
 
 	<bean id="getNewsContent" class="Action.GetNewsContent" scope="prototype">
@@ -229,7 +234,7 @@
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
 	</bean>
-
+	
 	<!-- 把Session工厂注入给hibernateTemplate -->
 	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 
 		<constructor-arg> <ref local="sessionFactory" /> </constructor-arg> </bean> -->
