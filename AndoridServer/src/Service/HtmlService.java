@@ -98,9 +98,12 @@ public class HtmlService {
 			Element news = doc.getElementById("subShowContent1_static");
 			Elements newsList = news.getElementsByClass("news-item");
 			// get the news by time
+			System.out.println("================================");
+			System.out.println("total num: "+ newsList.size());
+			System.out.println("================================");
 			for (int i = newsList.size() - 1; i >= 0; i--)
 			{
-				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"+i);
 				if (!newsList.get(i).attr("id").equals(""))
 					continue;
 				
@@ -117,11 +120,12 @@ public class HtmlService {
 				//pass the dumplicate news
 				if (contentService.hasContained(title))
 				{
+					System.out.println(title+ "has already in db");
 					continue;
 				}
 				System.out.println("Get Inside Html: Begin~");
 				// get the content page
-				Document docInside = Jsoup.connect(url).get();
+				Document docInside = Jsoup.connect(url).timeout(5000).get();
 				System.out.println("Get Inside Html: End~");
 				Element newsbody = docInside.getElementById("artibody");
 				// the content of the news
@@ -179,6 +183,8 @@ public class HtmlService {
 				
 				//get all the location, and save it
 				List<Location> locationList = getLocation.getLocation(newsContentStr);
+				if(locationList == null)
+					continue;
 				for (int j = 0; j < locationList.size(); j++)
 				{
 					locationList.get(j).setNewsContent(newsContent);

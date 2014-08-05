@@ -65,10 +65,15 @@ public class Spider extends ActionSupport {
 		// HTML Service is responsible for get the contents from the URL
 		htmlService.parseHtml(URLChina);
 		
+		System.out.println("china finish!");
+		
 		htmlService.parseHtml(URLWorld);
+		
+		System.out.println("world finish!");
 		
 		htmlService.parseHtml(URLSociety);
 
+		System.out.println("all finish!");
 		return SUCCESS;
 	}
 

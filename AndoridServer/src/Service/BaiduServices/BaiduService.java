@@ -142,7 +142,8 @@ public class BaiduService {
 		Document doc;
 		doc = Jsoup.connect(url).get();
 		Element news = doc.getElementById("content_left");
-		Elements newsList = news.getElementsByTag("li");
+		//Elements newsList = news.getElementsByTag("li");
+		Elements newsList = news.getElementsByClass("result");
 		if(newsList == null)
 			return null;
 		int num;

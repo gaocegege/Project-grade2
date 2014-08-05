@@ -32,6 +32,8 @@ public class GetLocation {
 	public List<Location> getLocation(String str) throws IOException
 	{
 		List<Token> tkns = splitService.split(str);
+		if(tkns == null)
+			return null;
 		List<Location> result = new ArrayList<Location>();
 		for (int i = 0; i < tkns.size(); i++)
 		{
