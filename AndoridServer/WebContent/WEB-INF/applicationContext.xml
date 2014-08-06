@@ -162,6 +162,9 @@
 	<bean id="similarityService" class="Service.SimilarityServices.SimilarityService" scope="prototype">
 	</bean>
 	
+	<bean id="mySimilarityService" class="Service.SimilarityServices.MySimilarityService" scope="prototype">
+	</bean>
+	
 	<bean id="threadService" class="Service.ThreadServices.ThreadService">
 	</bean>
 	
@@ -216,6 +219,7 @@
 	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
 		<property name="similarityService" ref="similarityService"/>
+		<property name="mySimilarityService" ref="mySimilarityService"/>
 		<property name="contentService" ref="contentService" />
 		<!-- <property name="threadService" ref="threadService" /> -->
 	</bean>

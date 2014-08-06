@@ -10,6 +10,7 @@ import Service.SearchFormat;
 import Service.BaiduServices.BaiduService;
 import Service.DBService.ContentService;
 import Service.SimilarityServices.SimilarityService;
+import Service.SimilarityServices.MySimilarityService;
 import Service.ThreadServices.ThreadService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +27,7 @@ public class GetBaiduList extends ActionSupport {
 	private List<Content> result;
 	private BaiduService baiduService;
 	private SimilarityService similarityService;
+	private MySimilarityService mySimilarityService;
 	private ContentService contentService;
 //	private ThreadService threadService;
 //	
@@ -37,6 +39,15 @@ public class GetBaiduList extends ActionSupport {
 //	public ThreadService getThreadService() {
 //		return threadService;
 //	}
+
+	public void setMySimilarityService(MySimilarityService mySimilarityService) {
+		this.mySimilarityService = mySimilarityService;
+	}
+	
+	@JSON(serialize=false)
+	public MySimilarityService getMySimilarityService() {
+		return mySimilarityService;
+	}
 
 	@JSON(serialize=false)
 	public ContentService getContentService() {
@@ -104,7 +115,9 @@ public class GetBaiduList extends ActionSupport {
 		result = baiduService.searchByKey(id, pid);
 		for (int i = 0; i < result.size(); i++)
 		{
-			float re = similarityService.similarScore(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+//			float re = similarityService.similarScore(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+			//wait to be tested
+			float re = mySimilarityService.calculateSimilarityLCS(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
 			if (re < 0.1)
 				result.remove(i);
 		}
