@@ -113,11 +113,12 @@ public class GetBaiduList extends ActionSupport {
 	public String execute() throws Exception
 	{
 		result = baiduService.searchByKey(id, pid);
-		for (int i = 0; i < result.size(); i++)
+		for (int i = result.size() - 1; i >= 0; i--)
 		{
 //			float re = similarityService.similarScore(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
 			//wait to be tested
 			float re = mySimilarityService.calculateSimilarityLCS(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+			System.out.println("re:\t" + re);
 			if (re < 0.1)
 				result.remove(i);
 		}
