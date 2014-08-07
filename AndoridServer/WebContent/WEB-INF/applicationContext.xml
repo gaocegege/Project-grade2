@@ -162,6 +162,12 @@
 	<bean id="similarityService" class="Service.SimilarityServices.SimilarityService" scope="prototype">
 	</bean>
 	
+	<bean id="mySimilarityService" class="Service.SimilarityServices.MySimilarityService" scope="prototype">
+	</bean>
+	
+	<bean id="threadService" class="Service.ThreadServices.ThreadService">
+	</bean>
+	
 	<bean id="getLocation" class="Service.GetLocation">
 		<property name="splitService" ref="splitService" />
 		<property name="baiduMapService" ref="baiduMapService" />
@@ -213,7 +219,9 @@
 	<bean id="getBaiduList" class="Action.GetBaiduList" scope="prototype">
 		<property name="baiduService" ref="baiduService" />
 		<property name="similarityService" ref="similarityService"/>
+		<property name="mySimilarityService" ref="mySimilarityService"/>
 		<property name="contentService" ref="contentService" />
+		<!-- <property name="threadService" ref="threadService" /> -->
 	</bean>
 
 	<bean id="getNewsContent" class="Action.GetNewsContent" scope="prototype">
@@ -234,41 +242,4 @@
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
 	</bean>
-	
-	<!-- 把Session工厂注入给hibernateTemplate -->
-	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 
-		<constructor-arg> <ref local="sessionFactory" /> </constructor-arg> </bean> -->
-	<!-- 把DAO注入给Session工厂 -->
-	<!-- <bean id="userDAO" class="dao.imp.UserDAO"> <property name="sessionFactory"> 
-		<ref bean="sessionFactory" /> </property> </bean> <bean id="bookDAO" class="dao.imp.BookDAO"> 
-		<property name="sessionFactory"> <ref bean="sessionFactory" /> </property> 
-		</bean> <bean id="ordersDAO" class="dao.imp.OrdersDAO"> <property name="sessionFactory"> 
-		<ref bean="sessionFactory" /> </property> </bean> <bean id="orderItemDAO" 
-		class="dao.imp.OrderItemDAO"> <property name="sessionFactory"> <ref bean="sessionFactory" 
-		/> </property> </bean> <bean id="userService" class="service.imp.UserService"> 
-		<property name="userDAO" ref="userDAO" /> </bean> <bean id="bookService" 
-		class="service.imp.BookService"> <property name="bookDAO" ref="bookDAO" /> 
-		</bean> <bean id="ordersService" class="service.imp.OrdersService"> <property 
-		name="ordersDAO" ref="ordersDAO" /> </bean> <bean id="orderItemService" class="service.imp.OrderItemService"> 
-		<property name="orderItemDAO" ref="orderItemDAO" /> </bean> <bean id="registerAction" 
-		class="action.Register" scope="prototype"> <property name="userService" ref="userService"></property> 
-		</bean> <bean id="bookShowAction" class="action.Books" scope="prototype"> 
-		<property name="bookService" ref="bookService"/> </bean> <bean id="sbookShowAction" 
-		class="action.StatisticBooks" scope="prototype"> <property name="bookService" 
-		ref="bookService"/> </bean> <bean id="addBookAction" class="action.AddBook" 
-		scope="prototype"> <property name="bookService" ref="bookService"/> </bean> 
-		<bean id="addToBasketAction" class="action.AddToBasket" scope="prototype"> 
-		</bean> <bean id="bargainAction" class="action.Bargain" scope="prototype"> 
-		<property name="ordersService" ref="ordersService"/> <property name="bookService" 
-		ref="bookService"/> <property name="userService" ref="userService"/> <property 
-		name="orderItemService" ref="orderItemService"/> </bean> <bean id="changeInfoAction" 
-		class="action.ChangeInfo" scope="prototype"> <property name="userService" 
-		ref="userService"></property> </bean> <bean id="orderShowAction" class="action.ViewOrder" 
-		scope="prototype"> <property name="ordersService" ref="ordersService"></property> 
-		<property name="userService" ref="userService"></property> </bean> <bean 
-		id="logoutAction" class="action.Logout" scope="prototype"> </bean> <bean 
-		id="statisticAction" class="action.Statistic" scope="prototype"> <property 
-		name="ordersService" ref="ordersService"/> <property name="bookService" ref="bookService"/> 
-		</bean> <bean id="statisticUserAction" class="action.StatisticUsers" scope="prototype"> 
-		<property name="ordersService" ref="ordersService"/> </bean> -->
 </beans>

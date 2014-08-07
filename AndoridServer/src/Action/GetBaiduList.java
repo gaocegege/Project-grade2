@@ -10,6 +10,8 @@ import Service.SearchFormat;
 import Service.BaiduServices.BaiduService;
 import Service.DBService.ContentService;
 import Service.SimilarityServices.SimilarityService;
+import Service.SimilarityServices.MySimilarityService;
+import Service.ThreadServices.ThreadService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,8 +27,28 @@ public class GetBaiduList extends ActionSupport {
 	private List<Content> result;
 	private BaiduService baiduService;
 	private SimilarityService similarityService;
+	private MySimilarityService mySimilarityService;
 	private ContentService contentService;
+//	private ThreadService threadService;
+//	
+//	public void setThreadService(ThreadService threadService) {
+//		this.threadService = threadService;
+//	}
+//	
+//	@JSON(serialize=false)
+//	public ThreadService getThreadService() {
+//		return threadService;
+//	}
+
+	public void setMySimilarityService(MySimilarityService mySimilarityService) {
+		this.mySimilarityService = mySimilarityService;
+	}
 	
+	@JSON(serialize=false)
+	public MySimilarityService getMySimilarityService() {
+		return mySimilarityService;
+	}
+
 	@JSON(serialize=false)
 	public ContentService getContentService() {
 		return contentService;
@@ -91,12 +113,16 @@ public class GetBaiduList extends ActionSupport {
 	public String execute() throws Exception
 	{
 		result = baiduService.searchByKey(id, pid);
-		for (int i = 0; i < result.size(); i++)
+		for (int i = result.size() - 1; i >= 0; i--)
 		{
-			float re = similarityService.similarScore(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+//			float re = similarityService.similarScore(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+			//wait to be tested
+			float re = mySimilarityService.calculateSimilarityLCS(contentService.getOneContent(id).getTitle(), result.get(i).getTitle());
+			System.out.println("re:\t" + re);
 			if (re < 0.1)
 				result.remove(i);
 		}
+//		result = threadService.dealWithResults(contentService.getOneContent(id).getTitle(), bufList);
 		return SUCCESS;
 	}
 }
