@@ -234,6 +234,10 @@
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
 	</bean>
+	<bean id="getLocationAction" class="Action.GetLocationAction" scope="prototype">
+		<property name="locationService" ref="locationService" />
+		<property name="contentService" ref="contentService" />
+	</bean>
 	
 	<!-- 把Session工厂注入给hibernateTemplate -->
 	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 

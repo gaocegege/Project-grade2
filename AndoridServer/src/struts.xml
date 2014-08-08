@@ -39,5 +39,8 @@
 		<action name="getSum" class="getSumAction">
 			<result type="json"></result>
 		</action>
+		<action name="getLocationAction" class="getLocationAction">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>

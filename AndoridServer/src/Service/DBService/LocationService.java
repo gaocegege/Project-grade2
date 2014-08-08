@@ -1,5 +1,7 @@
 package Service.DBService;
 
+import java.util.List;
+
 import DAO.LocationDAO;
 import Domain.Location;
 /**
@@ -21,5 +23,10 @@ public class LocationService {
 	public void addLocation(Location location)
 	{
 		locationDAO.addLocation(location);
+	}
+	
+	/* @author lixu*/
+	public List<Location> getLocationByAddr(float lat, float lng, float zoom){
+		return locationDAO.getLocationByAddr(lat, lng, zoom);
 	}
 }

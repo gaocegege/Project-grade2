@@ -47,6 +47,8 @@ public class BaiduMapService {
 		//line = line.replaceAll("\\s*", "");
 		//line = line.substring(2, line.length() - 2);
 		//to do
+		if(line.length() == 0)
+			return null;
 		line = line.substring(0, line.length() - 1);
 		//System.out.println(line);
 		for (int i = 0; i < line.length(); i++)
