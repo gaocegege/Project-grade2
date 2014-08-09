@@ -32,8 +32,10 @@ public class LocationDAO {
 		// Transaction tx = session.beginTransaction();
 		session.beginTransaction();
 
-		if (session.get(KeyWord.class, location.getLid()) == null)
+		if (session.get(KeyWord.class, location.getLid()) == null){
 			session.save(location);
+			System.out.println(location.getLat()+" "+location.getLng()+" "+location.getProvince());
+		}
 		// tx.commit();
 		session.getTransaction().commit();
 

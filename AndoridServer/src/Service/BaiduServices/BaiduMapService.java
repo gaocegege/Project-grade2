@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 import util.UnicodeDecoder;
-
+import Domain.AddressComponent;
 import Domain.Geo;
+import Service.JsonParserService.JsonToAddr;
 import Service.JsonParserService.JsonToGeos;
 
 /**
@@ -65,5 +66,40 @@ public class BaiduMapService {
 		JsonToGeos j = new JsonToGeos();
 		Geo result = j.tranfer(line);
 		return result;
+	}
+	/**
+	 * 调用百度API反地理编码
+	 * @author lixu
+	 *
+	 */
+	public AddressComponent getAddr(float lat,float lng) throws IOException
+	{
+		String api_key = "udpeucLuDMXbgAwAKNyOnnaF";
+		String callBack = "renderReverse";
+		String format = "json";
+		//String text = URLEncoder.encode(UnicodeDecoder.decodeUnicode(str), "utf-8");
+
+		URL url = new URL("http://api.map.baidu.com/geocoder/v2/?location=" + lat + "," + lng +
+				"&output=" + format + "&ak=" + api_key + "&callback=" + callBack + "&pois=0");
+		URLConnection conn = url.openConnection();
+		conn.connect();
+
+		BufferedReader innet = new BufferedReader(new InputStreamReader(
+				conn.getInputStream(), "utf-8"));
+		String line = "", cur;
+		while ((cur = innet.readLine()) != null) {
+			line += cur;
+		}
+		innet.close();
+
+		if(line.length() == 0)
+			return null;
+		int pos_1 = line.indexOf("{");
+		line = line.substring(pos_1,line.length()-1);
+		System.out.println(line);
+		
+		JsonToAddr ja = new JsonToAddr();
+		AddressComponent ac = ja.transfer(line);
+		return ac;
 	}
 }

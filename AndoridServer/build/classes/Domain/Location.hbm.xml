@@ -23,6 +23,26 @@
 			length="200"
 		></property>
 		
+		<property
+			name="province"
+			column="province"
+			update="true"
+			insert="true"
+			not-null="false"
+			type="java.lang.String"
+			length="20"
+		></property>
+		
+		<property
+			name="city"
+			column="city"
+			update="true"
+			insert="true"
+			not-null="false"
+			type="java.lang.String"
+			length="50"
+		></property>
+		
 		<property 
 			name="lng"
 			column="lng"
