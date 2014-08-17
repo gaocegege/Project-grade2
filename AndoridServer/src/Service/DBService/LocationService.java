@@ -26,7 +26,16 @@ public class LocationService {
 	}
 	
 	/* @author lixu*/
-	public List<Location> getLocationByAddr(float lat, float lng, float zoom){
-		return locationDAO.getLocationByAddr(lat, lng, zoom);
+	public List<Object[]> getLocationByAddr(float lat, float lng, float zoom,int bound){
+		return locationDAO.getLocationByAddr(lat, lng, zoom,bound);
+	}
+	
+	public List<String> getPro(int bound){
+		List<String> dbresult = locationDAO.getPro(bound);
+		return dbresult;
+	}
+	public List<Object[]> getLocByPro(String province,int bound){
+		List<Object[]> result = locationDAO.getLocByPro(province,bound);
+		return result;
 	}
 }
