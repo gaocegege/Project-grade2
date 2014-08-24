@@ -12,6 +12,11 @@ import Domain.OriginContent;
 import net.sf.json.JSONArray;  
 import net.sf.json.JSONObject;  
 
+/**
+ * 把Json转为Java对象的服务类
+ * @author Lixu
+ *
+ */
 public class JsonToJava {
 	private List<Content> bufList;
 	

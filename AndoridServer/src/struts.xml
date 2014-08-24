@@ -36,5 +36,8 @@
 		<action name="getSimilarNews2" class="getSimilarNews2">
 			<result type="json"></result>
 		</action>
+		<action name="getSum" class="getSumAction">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>

@@ -1,8 +1,12 @@
 package Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
+
+import org.apache.struts2.ServletActionContext;
 
 import Domain.Importance;
 
@@ -10,7 +14,11 @@ import edu.fudan.ml.types.Dictionary;
 import edu.fudan.nlp.cn.tag.CWSTagger;
 import edu.fudan.util.exception.LoadModelException;
 
-
+/**
+ * 获得新闻摘要的服务类
+ * @author cece
+ *
+ */
 public class SummaryService {
 	private List<String> sentence;
 
@@ -44,7 +52,14 @@ public class SummaryService {
 	
 	public List<String> getSummary(List<Importance> important, String content) throws LoadModelException
 	{
-		CWSTagger tag = new CWSTagger("./models/seg.m");
+		Properties property = System.getProperties();
+		String str = property.getProperty("user.dir");
+		
+		// can not find the seg.m
+//		System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
+		// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		CWSTagger tag;
+		tag = new CWSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m");
 		List<String> sentenceList = getAllSentences(content);
 		List<Integer> importantList = new ArrayList<Integer>();
 		

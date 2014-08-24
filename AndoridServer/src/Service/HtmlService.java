@@ -23,6 +23,11 @@ import Service.DBService.ContentService;
 import Service.DBService.KeyWordService;
 import Service.DBService.LocationService;
 
+/**
+ * 关键类，获得新闻信息的服务类，被spider调用
+ * @author cece and Lixu
+ *
+ */
 public class HtmlService {
 	private ContentService contentService;
 	private KeyWordService keyWordService;
@@ -70,7 +75,11 @@ public class HtmlService {
 	public ContentService getContentService() {
 		return contentService;
 	}
-
+	
+	/**
+	 * 
+	 * @param queryUrl
+	 */
 	//get news from sina
 	public void parseHtml(String queryUrl)
 	{
@@ -103,9 +112,12 @@ public class HtmlService {
 			System.out.println("================================");
 			for (int i = newsList.size() - 1; i >= 0; i--)
 			{
-				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"+i);
+				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 				if (!newsList.get(i).attr("id").equals(""))
+				{
+					System.out.println("id = ''");
 					continue;
+				}
 				
 				// the content item
 				Content contentBuf = new Content();
@@ -130,6 +142,7 @@ public class HtmlService {
 				Element newsbody = docInside.getElementById("artibody");
 				// the content of the news
 				String newsContentStr = newsbody.getElementsByTag("p").text();
+				// fit the database
 
 				// if the news are too long, continue (will be fixed in the future)
 				// if it is, the code will be paused there

@@ -15,6 +15,11 @@ import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 得到相关新闻（根据id）
+ * @author Lixu
+ *
+ */
 public class GetSimilarNews extends ActionSupport {
 	private int id;
 	private int pid;

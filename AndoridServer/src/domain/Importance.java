@@ -1,5 +1,10 @@
 package Domain;
 
+/**
+ * 关键词重要性类
+ * @author cece
+ *
+ */
 public class Importance {
 	//key word class
 	private String word;

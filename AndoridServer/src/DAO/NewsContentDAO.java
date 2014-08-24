@@ -10,6 +10,11 @@ import org.hibernate.Transaction;
 import Domain.Content;
 import Domain.NewsContent;
 
+/**
+ * 新闻正文的数据库操作类
+ * @author cece
+ *
+ */
 public class NewsContentDAO {
 	private SessionFactory sessionFactory;
 

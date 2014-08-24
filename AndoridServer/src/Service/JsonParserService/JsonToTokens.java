@@ -13,7 +13,11 @@ import Domain.Token;
 import net.sf.json.JSONArray;  
 import net.sf.json.JSONObject;  
 
-
+/**
+ * 把json转为Token的服务类
+ * @author Lixu
+ *
+ */
 public class JsonToTokens {
 	private List<Token> bufList;
 	

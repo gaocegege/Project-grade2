@@ -9,6 +9,11 @@ import net.sf.json.JSONObject;
 
 import Domain.Geo;
 
+/**
+ * 把json转为Geo的服务类
+ * @author cece
+ *
+ */
 public class JsonToGeos {
 	public Geo tranfer(String JsonStr)
 	{

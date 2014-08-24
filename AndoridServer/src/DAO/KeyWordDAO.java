@@ -9,6 +9,11 @@ import Domain.KeyWord;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 关键词的数据库操作类
+ * @author cece
+ *
+ */
 public class KeyWordDAO extends ActionSupport {
 	private SessionFactory sessionFactory;
 

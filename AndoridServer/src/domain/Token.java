@@ -5,6 +5,11 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 
+/**
+ * API得到的单元
+ * @author Lixu
+ *
+ */
 public class Token {
 	private int id;
 	private String cont;

@@ -10,6 +10,11 @@ import org.jsoup.nodes.Document;
 import Domain.Content;
 import Domain.Token;
 
+/**
+ * 
+ * @author Lixu
+ *
+ */
 public class CompareService {
 	private SplitService splitService;
 	private Content content1;

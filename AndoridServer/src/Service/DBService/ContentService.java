@@ -6,6 +6,11 @@ import net.sf.json.JSONArray;
 import DAO.ContentDAO;
 import Domain.Content;
 
+/**
+ * 数据库访问类
+ * @author cece
+ *
+ */
 public class ContentService {
 	private ContentDAO contentDAO;
 

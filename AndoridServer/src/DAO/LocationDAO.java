@@ -7,6 +7,11 @@ import org.hibernate.Transaction;
 import Domain.KeyWord;
 import Domain.Location;
 
+/**
+ * 新闻地点的数据库操作类
+ * @author cece
+ *
+ */
 public class LocationDAO {
 	private SessionFactory sessionFactory;
 

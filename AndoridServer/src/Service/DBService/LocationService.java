@@ -2,7 +2,11 @@ package Service.DBService;
 
 import DAO.LocationDAO;
 import Domain.Location;
-
+/**
+ * 数据库访问类
+ * @author cece
+ *
+ */
 public class LocationService {
 	private LocationDAO locationDAO;
 

@@ -9,6 +9,11 @@ import Domain.Location;
 import Domain.Token;
 import Service.BaiduServices.BaiduMapService;
 
+/**
+ * 根据新闻得到地点的服务类
+ * @author cece
+ *
+ */
 public class GetLocation {
 	private SplitService splitService;
 	private BaiduMapService baiduMapService;
@@ -28,7 +33,13 @@ public class GetLocation {
 	public SplitService getSplitService() {
 		return splitService;
 	}
-
+	
+	/**
+	 * 
+	 * @param str
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Location> getLocation(String str) throws IOException
 	{
 		List<Token> tkns = splitService.split(str);

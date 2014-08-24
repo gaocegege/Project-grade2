@@ -4,7 +4,11 @@ import java.util.Set;
 
 import org.apache.struts2.json.annotations.JSON;
 
-
+/**
+ * 新闻条目类（数据库）
+ * @author cece
+ *
+ */
 public class Content {
 	private String title;
 	private String url;

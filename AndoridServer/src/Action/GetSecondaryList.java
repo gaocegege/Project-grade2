@@ -12,6 +12,11 @@ import Domain.Content;
 import Service.SearchFormat;
 import Service.BaiduServices.BaiduService;
 
+/**
+ * 得到二级列表
+ * @author Lixu
+ *
+ */
 public class GetSecondaryList extends ActionSupport{
 	private int pid;
 	private String title;

@@ -12,6 +12,11 @@ import Service.DBService.ContentService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 得到新闻列表
+ * @author cece
+ *
+ */
 public class GetList extends ActionSupport {
 	private int id;
 	private int types;
