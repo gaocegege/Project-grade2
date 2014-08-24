@@ -22,8 +22,7 @@
 	        }
 	    });
 	}
-	//setInterval("send()",5000);
-	//send();
+	setInterval("send()",50000);
 	</script>
 </body>
 </html>

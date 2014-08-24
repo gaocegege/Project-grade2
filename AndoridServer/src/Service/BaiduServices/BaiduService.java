@@ -30,8 +30,48 @@ public class BaiduService {
 	public void setContentDAO(ContentDAO contentDAO) {
 		this.contentDAO = contentDAO;
 	}
-
-
+	
+	/**
+	 * 根据新闻标题获得100条相关新闻（如果存在）
+	 * @param searchContext
+	 * @return
+	 * @throws IOException 
+	 */
+	public List<Content> searchHundread(String searchContext) throws IOException
+	{
+		List<Content> result = new ArrayList<Content>();
+		for (int pid = 0; pid <100; pid += 20)
+		{
+			result.addAll(this.search(searchContext, pid));
+		}
+		System.out.println("HundreadResult's size is " + result.size());
+		return result;
+	}
+	
+	/**
+	 * 根据id获得100条相关新闻（如果存在）
+	 * @param id
+	 * @return
+	 * @throws IOException
+	 */
+	public List<Content> searchHundread(int id) throws IOException
+	{
+		List<Content> result = new ArrayList<Content>();
+		for (int pid = 0; pid <100; pid += 20)
+		{
+			result.addAll(this.searchByKey(id, pid));
+		}
+		System.out.println("HundreadResult's size is " + result.size());
+		return result;
+	}
+	
+	/**
+	 * 根据新闻关键字和id寻找相关新闻，id负责翻页（对应searchByKey的pid）
+	 * @param searchContext
+	 * @param id
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Content> search(String searchContext, int id)
 			throws IOException {
 		System.out.println(searchContext);
@@ -39,6 +79,9 @@ public class BaiduService {
 		String urlA = "http://news.baidu.com/ns?word=";
 		String urlB = "&tn=newstitle&from=news&cl=2&rn=20&ct=0";
 		
+		/*
+		 * id用来实现翻页，20为一页，20，40，60递增
+		 */
 		String url = urlA + searchContext + urlB + "&pn=" + id;
 		Document doc;
 		doc = Jsoup.connect(url).get();
@@ -77,8 +120,14 @@ public class BaiduService {
 		}
 		return result;
 	}
-
 	
+	/**
+	 * 根据新闻的id，和pid取得相关新闻，pid负责翻页
+	 * @param id
+	 * @param pid
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Content> searchByKey(int id, int pid)
 			throws IOException {
 		Content cur = contentDAO.getOneContent(id);
@@ -133,6 +182,14 @@ public class BaiduService {
 		}
 		return result;
 	}
+	
+	/**
+	 * 不知道跟search有何区别~
+	 * @param searchContext
+	 * @param id
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Content> searchByWords(String searchContext,int id)
 			throws IOException {
 		List<Content> result = new ArrayList<Content>();
@@ -184,6 +241,12 @@ public class BaiduService {
 		}
 		return result;
 	}
+	
+	/**
+	 * main函数
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String args[]) throws IOException {
 		String searchContext = "广东 可疑男子";
 		int id = 0;
