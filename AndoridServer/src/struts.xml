@@ -51,5 +51,8 @@
 		<action name="getNews" class="getNews">
 			<result type="json"></result>
 		</action>
+		<action name="getBaiduSum" class="getBaiduSum">
+			<result type="json"></result>
+		</action>
 	</package>
 </struts>

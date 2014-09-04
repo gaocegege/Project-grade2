@@ -247,6 +247,9 @@
 	<bean id="getNews" class="Action.GetNews" scope="prototype">
 		<property name="contentService" ref="contentService" />
 	</bean>
+	<bean id="getBaiduSum" class="Action.GetBaiduSum" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+	</bean>
 	
 	<!-- 把Session工厂注入给hibernateTemplate -->
 	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"> 
