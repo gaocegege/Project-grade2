@@ -1,5 +1,6 @@
 package Service.SimilarityServices;
 
+import util.MyPath;
 import edu.fudan.nlp.cn.tag.POSTagger;
 import edu.fudan.nlp.parser.dep.DependencyTree;
 import edu.fudan.nlp.parser.dep.JointParser;
@@ -16,12 +17,12 @@ public class DepParserService {
 	
 	public DepParserService() throws Exception
 	{
-		parser = new JointParser("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\dep.m");
+		parser = new JointParser(MyPath.path + "/dep.m");
 	}
 	
 	public DependencyTree getTree(String str) throws Exception
 	{
-		POSTagger tag = new POSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m","E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\pos.m");
+		POSTagger tag = new POSTagger(MyPath.path + "/seg.m",MyPath.path + "pos.m");
 		String[][] s = tag.tag2Array(str);
 		try {
 			DependencyTree tree = parser.parse2T(s[0],s[1]);
