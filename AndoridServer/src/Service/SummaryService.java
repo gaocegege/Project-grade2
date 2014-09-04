@@ -61,7 +61,8 @@ public class SummaryService {
 //		System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
 		// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		CWSTagger tag;
-		tag = new CWSTagger(MyPath.path + "/seg.m");
+		String a = ServletActionContext.getServletContext().getRealPath("/");
+		tag = new CWSTagger(ServletActionContext.getServletContext().getRealPath("/") + MyPath.path + "/seg.m");
 		List<String> sentenceList = getAllSentences(content);
 		List<Integer> importantList = new ArrayList<Integer>();
 		

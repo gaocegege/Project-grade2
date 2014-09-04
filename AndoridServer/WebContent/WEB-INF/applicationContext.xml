@@ -33,7 +33,7 @@
 		</property>
 		<!-- 数据库的密码 -->
 		<property name="password">
-			<value></value>
+			<value>Zz119911</value>
 		</property>
 	</bean>
 	<!-- 把数据源注入给Session工厂 -->
