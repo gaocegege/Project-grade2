@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Domain.AddressComponent;
 import Domain.Geo;
 import Domain.Location;
 import Domain.Token;
@@ -71,8 +72,13 @@ public class GetLocation {
 						continue;
 					}
 					System.out.println(e.getLocation());
+					AddressComponent ac = baiduMapService.getAddr(buf.getLat(),buf.getLng());
+					System.out.println(ac.getCity()+" "+ac.getProvince());
+					//System.out.println(e.getLocation());
 					e.setLat(buf.getLat());
 					e.setLng(buf.getLng());
+					e.setCity(ac.getCity());
+					e.setProvince(ac.getProvince());
 					result.add(e);
 				}
 				//organization
@@ -90,13 +96,19 @@ public class GetLocation {
 					}
 					e.setLocation(strBuf);
 					Geo buf = baiduMapService.getGeo(e.getLocation());
+					
 					if (buf == null)
 					{
 						continue;
 					}
-					System.out.println(e.getLocation());
+					System.out.println(buf.getLat()+" "+buf.getLng());
+					AddressComponent ac = baiduMapService.getAddr(buf.getLat(),buf.getLng());
+					System.out.println(ac.getCity()+" "+ac.getProvince());
+					//System.out.println(e.getLocation());
 					e.setLat(buf.getLat());
 					e.setLng(buf.getLng());
+					e.setCity(ac.getCity());
+					e.setProvince(ac.getProvince());
 					result.add(e);
 				}
 			}

@@ -242,4 +242,20 @@
 		<property name="splitService" ref="splitService" />
 		<property name="chooseService" ref="chooseService" />
 	</bean>
+	<bean id="getLocationAction" class="Action.GetLocationAction" scope="prototype">
+		<property name="locationService" ref="locationService" />
+		<property name="contentService" ref="contentService" />
+	</bean>
+	<bean id="getPro" class="Action.GetPro" scope="prototype">
+		<property name="locationService" ref="locationService" />
+	</bean>
+	<bean id="getLocByPro" class="Action.GetLocByPro" scope="prototype">
+		<property name="locationService" ref="locationService" />
+	</bean>
+	<bean id="getNews" class="Action.GetNews" scope="prototype">
+		<property name="contentService" ref="contentService" />
+	</bean>
+	<bean id="getBaiduSum" class="Action.GetBaiduSum" scope="prototype">
+		<property name="baiduService" ref="baiduService" />
+	</bean>
 </beans>
