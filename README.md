@@ -1,12 +1,8 @@
 Project-grade2
 ==============
 
-project in summer
+暑假大作业的后端代码，采用SSH架构
 
-###Coder:
-      Gaoce
-      Lixu
-      Chenlong
-      Shaoyifan
-###可能出现bug的地方
-   contentDAO里hasContained似乎没有关闭session
+实现:
+	高策
+	李旭
