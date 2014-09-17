@@ -8,6 +8,8 @@ package Domain;
 public class Location {
 	private int lid;
 	private String location;
+	private String province;
+	private String city;
 	private float lat;
 	private float lng;
 	private NewsContent newsContent;
@@ -22,6 +24,18 @@ public class Location {
 	}
 	public String getLocation() {
 		return location;
+	}
+	public String getProvince() {
+		return province;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public void setProvince(String province) {
+		this.province = province;
 	}
 	public void setLat(float lat) {
 		this.lat = lat;

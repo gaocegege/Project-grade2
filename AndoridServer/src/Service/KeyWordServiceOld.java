@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.fnlp.app.keyword.AbstractExtractor;
 import org.fnlp.app.keyword.WordExtract;
+
+import util.MyPath;
 
 import Domain.Importance;
 
@@ -31,10 +34,10 @@ public class KeyWordServiceOld
 			// get the stopwords
 			System.out.println("Get the key words: begin");
 			// please replace the "./models/stopwords" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			StopWords sw= new StopWords("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\stopwords");
+			StopWords sw= new StopWords(ServletActionContext.getServletContext().getRealPath("/") + MyPath.path + "/stopwords");
 			CWSTagger seg;
 			// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			seg = new CWSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m");
+			seg = new CWSTagger(ServletActionContext.getServletContext().getRealPath("/") + MyPath.path + "/seg.m");
 			AbstractExtractor key = new WordExtract(seg,sw);
 			
 			List<Importance> result = new ArrayList<Importance>();

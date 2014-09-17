@@ -8,6 +8,8 @@ import java.util.Properties;
 
 import org.apache.struts2.ServletActionContext;
 
+import util.MyPath;
+
 import Domain.Importance;
 
 import edu.fudan.ml.types.Dictionary;
@@ -59,7 +61,8 @@ public class SummaryService {
 //		System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
 		// please replace the "./models/seg.m" with the absolute path!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		CWSTagger tag;
-		tag = new CWSTagger("E:\\MyProject\\GitHub\\Project-grade2\\AndoridServer\\WebContent\\models\\seg.m");
+		String a = ServletActionContext.getServletContext().getRealPath("/");
+		tag = new CWSTagger(ServletActionContext.getServletContext().getRealPath("/") + MyPath.path + "/seg.m");
 		List<String> sentenceList = getAllSentences(content);
 		List<Integer> importantList = new ArrayList<Integer>();
 		

@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Test for get News</title>
 </head>
@@ -22,8 +22,7 @@
 	        }
 	    });
 	}
-	//setInterval("send()",5000);
-	//send();
+	setInterval("send()",50000);
 	</script>
 </body>
 </html>

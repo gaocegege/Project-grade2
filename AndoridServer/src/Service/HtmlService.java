@@ -107,9 +107,12 @@ public class HtmlService {
 			Element news = doc.getElementById("subShowContent1_static");
 			Elements newsList = news.getElementsByClass("news-item");
 			// get the news by time
+			System.out.println("================================");
+			System.out.println("total num: "+ newsList.size());
+			System.out.println("================================");
 			for (int i = newsList.size() - 1; i >= 0; i--)
 			{
-				System.out.println("for loop: " + i);
+				System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 				if (!newsList.get(i).attr("id").equals(""))
 				{
 					System.out.println("id = ''");
@@ -129,18 +132,21 @@ public class HtmlService {
 				//pass the dumplicate news
 				if (contentService.hasContained(title))
 				{
+					System.out.println(title+ "has already in db");
 					continue;
 				}
 				System.out.println("Get Inside Html: Begin~");
 				// get the content page
-				Document docInside = Jsoup.connect(url).get();
+				Document docInside = Jsoup.connect(url).timeout(5000).get();
 				System.out.println("Get Inside Html: End~");
 				Element newsbody = docInside.getElementById("artibody");
 				// the content of the news
 				String newsContentStr = newsbody.getElementsByTag("p").text();
+				// fit the database
+
 				// if the news are too long, continue (will be fixed in the future)
-				// BUG::::::::::if it is, the code will be paused there
-				if(newsContentStr.length()>=4000)
+				// if it is, the code will be paused there
+				if(newsContentStr.length()>=3999)
 				{
 					System.out.println("The content is too long");
 					continue;
@@ -190,6 +196,8 @@ public class HtmlService {
 				
 				//get all the location, and save it
 				List<Location> locationList = getLocation.getLocation(newsContentStr);
+				if(locationList == null)
+					continue;
 				for (int j = 0; j < locationList.size(); j++)
 				{
 					locationList.get(j).setNewsContent(newsContent);

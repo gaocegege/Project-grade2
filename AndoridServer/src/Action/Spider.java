@@ -12,7 +12,7 @@ import Service.DBService.ContentService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * ≈¿»°–¬Œ≈
+ * √Ö√Ä√à¬°√ê√Ç√é√Ö
  * @author cece
  *
  */
@@ -70,11 +70,15 @@ public class Spider extends ActionSupport {
 		// HTML Service is responsible for get the contents from the URL
 		htmlService.parseHtml(URLChina);
 		
+		System.out.println("china finish!");
+		
 		htmlService.parseHtml(URLWorld);
 		
-		htmlService.parseHtml(URLSociety);
+		System.out.println("world finish!");
 		
-		System.out.println("Over!!");
+		htmlService.parseHtml(URLSociety);
+
+		System.out.println("all finish!");
 		return SUCCESS;
 	}
 

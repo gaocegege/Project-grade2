@@ -160,6 +160,13 @@ public class SearchFormat {
 				System.out.println(attlist.get(i));
 			}
 		}
+		//===================================================================
+		if(alt.size()+nes.size() <= 1){
+			for(Token t: tokens){
+				if(t.getPos().contains("n"))
+					nes.add(t.getCont());
+			}
+		}
 
 		// format search context
 		// ==================================================================

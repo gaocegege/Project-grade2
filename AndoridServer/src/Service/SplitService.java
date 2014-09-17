@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -34,8 +35,9 @@ public class SplitService {
 			+ api_key + "&" + "text=" + text + "&" + "format=" + format
 			+ "&" + "pattern=" + pattern;
 		URL url = new URL("http://api.ltp-cloud.com/analysis/");
-		URLConnection conn = url.openConnection();
+		URLConnection connformer = url.openConnection();
 		 // 设置doOutput属性为true表示将使用此urlConnection写入数据  
+		HttpURLConnection conn = (HttpURLConnection) connformer;
 		conn.setDoOutput(true);  
         // 定义待写入数据的内容类型，我们设置为application/x-www-form-urlencoded类型  
 		conn.setRequestProperty("content-type", "application/x-www-form-urlencoded");  
@@ -45,7 +47,9 @@ public class SplitService {
         out.flush();
         out.close();
 		conn.connect();
-
+		System.out.println("reponse: "+conn.getResponseCode());
+		if(conn.getResponseCode() == 400 || conn.getResponseCode() == 500)
+			return null;
 		BufferedReader innet = new BufferedReader(new InputStreamReader(
 				conn.getInputStream(), "utf-8"));
 		String line = "", cur;
